@@ -398,3 +398,16 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
   .shead{gap:14px}
   .bmap__body,.person{padding-left:16px;padding-right:16px}
 }
+
+/* ---------------- PRODUCT CARDS (Products section) ---------------- */
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(216px,1fr));gap:18px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:2px solid var(--line);border-radius:12px;overflow:hidden;transition:.25s var(--ease)}
+.section--ink .pcard{border-color:transparent}
+.pcard:hover{border-color:var(--nh-blue);transform:translateY(-5px);box-shadow:var(--shadow)}
+.pcard__img{aspect-ratio:4/3;background:var(--mist);display:block;overflow:hidden}
+.pcard__img img{width:100%;height:100%;object-fit:contain;padding:12px;transition:.4s var(--ease)}
+.pcard:hover .pcard__img img{transform:scale(1.05)}
+.pcard__name{font-family:'Archivo';font-weight:800;font-size:13.5px;text-transform:uppercase;letter-spacing:.01em;line-height:1.2;padding:14px 16px;color:var(--ink);display:flex;justify-content:space-between;gap:10px;align-items:center}
+.pcard__name i{color:var(--nh-blue);font-style:normal;font-size:1.05rem}
+.pcard:hover .pcard__name i{color:var(--nh-yellow-deep)}
+@media(max-width:560px){.pcards{grid-template-columns:repeat(2,1fr);gap:12px}.pcard__name{font-size:12px;padding:11px 12px}}
