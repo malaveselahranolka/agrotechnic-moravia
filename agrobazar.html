@@ -7,12 +7,22 @@
 <title>Agrobazar — AGROTECHNIC MORAVIA a.s.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header class="nav" id="nav">
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__left">Člen koncernu <strong style="color:#fff">AGROFERT</strong> · Autorizovaný dealer New Holland</div>
+    <div class="topbar__right">
+      <span><span class="dotk">NON-STOP</span> <a href="tel:+420606078123">606 078 123</a></span>
+      <span>Olomouc <a href="tel:+420720997752">720 997 752</a></span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
   <div class="container nav__inner">
     <a href="index.html" class="brand" aria-label="Agrotechnic Moravia">
       <span class="brand__mark">AM</span>
@@ -32,61 +42,54 @@
   </div>
 </header>
 
-<section class="subhero">
-  <div class="subhero__bg"><img src="https://loremflickr.com/1600/700/used,tractor,farm?lock=61" alt="" loading="eager" /></div>
-  <div class="container subhero__inner">
-    <nav class="breadcrumb"><a href="index.html">Úvod</a><span>/</span>Agrobazar</nav>
-    <h1>Agrobazar</h1>
-    <p>Nabídku použité zemědělské a stavební techniky najdete na našem inzertním portálu. Hledáte konkrétní stroj? Napište nám a najdeme ho pro vás.</p>
-  </div>
-</section>
-
 <section class="section">
-  <div class="container contact">
-    <div class="contact__info reveal">
-      <span class="eyebrow">Použitá technika</span>
-      <h2>Prohlédněte si aktuální nabídku</h2>
-      <p>Kompletní a průběžně aktualizovanou nabídku použité techniky vystavujeme na portálu Traktorbazar.cz.</p>
-      <ul class="contact__list">
-        <li><span>🚜</span> Traktory, nakladače, bagry i technika pro píci</li>
-        <li><span>✅</span> Stroje s prověřeným původem a servisní historií</li>
-        <li><span>💬</span> Konkrétní poptávku rádi vyřídíme i individuálně</li>
-      </ul>
-      <p style="margin-top:26px">
-        <a href="https://www.traktorbazar.cz/" target="_blank" rel="noopener" class="btn btn--primary">Otevřít nabídku na Traktorbazar.cz ↗</a>
-      </p>
+  <div class="container">
+    <div class="shead reveal">
+      <span class="shead__idx">↻</span>
+      <div class="shead__main">
+        <span class="shead__eyebrow">Agrobazar</span>
+        <h2 class="shead__title">Použitá<br />technika</h2>
+      </div>
+      <p class="shead__desc">Nabídku použité zemědělské a stavební techniky najdete na našem inzertním portálu. Hledáte konkrétní stroj? Napište nám a najdeme ho pro vás.</p>
     </div>
 
-    <form class="contact__form reveal" onsubmit="return handleSubmit(event)">
-      <p style="font-family:'Sora';font-weight:700;font-size:1.15rem;margin-bottom:4px">Poptávka konkrétního stroje</p>
-      <div class="field"><label for="name">Jméno a příjmení</label><input id="name" name="name" required placeholder="Vaše jméno" /></div>
-      <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="vas@email.cz" /></div>
-      <div class="field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel" placeholder="+420 …" /></div>
-      <div class="field"><label for="msg">Jaký stroj hledáte?</label><textarea id="msg" name="msg" rows="4" required placeholder="Např. traktor New Holland T6, rok, výkon, cenová představa…"></textarea></div>
-      <button type="submit" class="btn btn--primary btn--full">Odeslat poptávku</button>
-      <p class="form__note" id="formNote" hidden>Děkujeme! Otevřeli jsme váš e-mailový klient s předvyplněnou zprávou — stačí ji odeslat.</p>
-    </form>
+    <div class="contact reveal">
+      <div>
+        <p style="font-size:1.1rem;color:var(--ink-soft);margin-bottom:22px">Kompletní a průběžně aktualizovanou nabídku použité techniky vystavujeme na portálu <strong style="color:var(--ink)">Traktorbazar.cz</strong>.</p>
+        <ul class="contact__list">
+          <li><span>🚜</span> Traktory, nakladače, bagry i technika pro píci</li>
+          <li><span>✅</span> Stroje s prověřeným původem a servisní historií</li>
+          <li><span>💬</span> Konkrétní poptávku rádi vyřídíme i individuálně</li>
+        </ul>
+        <p style="margin-top:28px">
+          <a href="https://www.traktorbazar.cz/" target="_blank" rel="noopener" class="btn btn--primary">Otevřít nabídku na Traktorbazar.cz ↗</a>
+        </p>
+      </div>
+
+      <form class="form" onsubmit="return handleSubmit(event)">
+        <p class="form__title">Poptávka stroje</p>
+        <div class="field"><label for="name">Jméno a příjmení</label><input id="name" name="name" required placeholder="Vaše jméno" /></div>
+        <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="vas@email.cz" /></div>
+        <div class="field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel" placeholder="+420 …" /></div>
+        <div class="field"><label for="msg">Jaký stroj hledáte?</label><textarea id="msg" name="msg" rows="4" required placeholder="Např. traktor New Holland T6, rok, výkon, cenová představa…"></textarea></div>
+        <button type="submit" class="btn btn--blue btn--full">Odeslat poptávku →</button>
+        <p class="form__note" id="formNote" hidden>Děkujeme! Otevřeli jsme váš e-mailový klient s předvyplněnou zprávou — stačí ji odeslat.</p>
+      </form>
+    </div>
   </div>
 </section>
 
 <footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <span class="brand__mark">AM</span>
-      <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
-      <p>Člen koncernu AGROFERT · Autorizovaný dealer New Holland.</p>
+  <div class="footer__word"><div class="container"><b>AGROTECHNIC <span class="yellow">MORAVIA</span></b></div></div>
+  <div class="container">
+    <div class="footer__main">
+      <div><h5>Společnost</h5><p>AGROTECHNIC MORAVIA a.s.<br />Lipenská 1120/47<br />779 00 Olomouc – Hodolany<br />IČ: 27839834</p></div>
+      <div><h5>Navigace</h5><a href="index.html">Produkty</a><a href="aktuality.html">Aktuality</a><a href="sluzby.html">Služby</a><a href="agrobazar.html">Agrobazar</a><a href="kontakt.html">Kontakty</a><a href="spolecnost.html">O společnosti</a></div>
+      <div><h5>Non-stop servis</h5><a href="tel:+420606078123">Ratíškovice · 606 078 123</a><a href="tel:+420601367042">Bruntál · 601 367 042</a><a href="tel:+420720997752">Olomouc · 720 997 752</a></div>
     </div>
-    <nav class="footer__nav">
-      <a href="index.html">Produkty</a>
-      <a href="aktuality.html">Aktuality</a>
-      <a href="sluzby.html">Služby</a>
-      <a href="agrobazar.html">Agrobazar</a>
-      <a href="kontakt.html">Kontakty</a>
-      <a href="spolecnost.html">O společnosti</a>
-    </nav>
-    <div class="footer__legal">
-      <span>© <span id="year"></span> AGROTECHNIC MORAVIA a.s.</span>
-      <span>IČ: 27839834</span>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> AGROTECHNIC MORAVIA a.s. · Člen koncernu AGROFERT</span>
+      <span>Autorizovaný dealer New Holland</span>
     </div>
   </div>
 </footer>
