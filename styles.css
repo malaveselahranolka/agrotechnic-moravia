@@ -378,6 +378,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 
 @media(max-width:1024px){
   .nav__item--drop{display:block;position:relative}
+  .nav__toplink{display:block;width:100%}
   .nav__item--drop .caret{position:absolute;right:14px;top:6px;color:#fff;font-size:16px;padding:12px 16px}
   .nav__item--drop.open .caret{transform:rotate(180deg)}
   .dropdown{position:static;opacity:1;visibility:visible;transform:none;display:none;box-shadow:none;border-bottom:0;max-height:none;background:rgba(0,0,0,.18);color:#fff}
