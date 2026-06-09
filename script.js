@@ -94,7 +94,7 @@ function handleSubmit(e) {
     (phone ? `Telefon: ${phone}\n` : '') +
     (topic ? `Téma: ${topic}\n` : '') +
     `\n${msg}\n`;
-  const mailto = `mailto:info@agrotechnicmoravia.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailto = `mailto:roman.lzicar@navos-km.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = mailto;
   const note = document.getElementById('formNote');
   if (note) note.hidden = false;

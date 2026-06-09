@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Kontakt na Agrotechnic Moravia a.s. — sídlo Olomouc, 6 poboček po Moravě, telefony a nezávazná poptávka techniky a servisu." />
-<title>Kontakt — AGROTECHNIC MORAVIA a.s.</title>
+<meta name="description" content="Kontakty AGROTECHNIC MORAVIA a.s. — sídlo Olomouc a šest poboček (Olomouc, Kroměříž, Zábřeh, Miroslav, Ratíškovice, Bruntál) s adresami, GPS a telefony." />
+<title>Kontakty — AGROTECHNIC MORAVIA a.s.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -14,17 +14,17 @@
 
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <a href="index.html#top" class="brand" aria-label="Agrotechnic Moravia">
+    <a href="index.html" class="brand" aria-label="Agrotechnic Moravia">
       <span class="brand__mark">AM</span>
       <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
     </a>
     <nav class="nav__links" id="navLinks">
-      <a href="produkty.html">Produkty</a>
-      <a href="agrobazar.html">Agrobazar</a>
+      <a href="index.html">Produkty</a>
       <a href="aktuality.html">Aktuality</a>
-      <a href="index.html#sluzby">Služby</a>
-      <a href="index.html#pobocky">Pobočky</a>
-      <a href="kontakt.html" class="nav__cta active">Kontakt</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="agrobazar.html">Agrobazar</a>
+      <a href="spolecnost.html">O společnosti</a>
+      <a href="kontakt.html" class="nav__cta active">Kontakty</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -35,31 +35,32 @@
 <section class="subhero">
   <div class="subhero__bg"><img src="https://loremflickr.com/1600/700/farm,tractor,sunset?lock=91" alt="" loading="eager" /></div>
   <div class="container subhero__inner">
-    <nav class="breadcrumb"><a href="index.html">Úvod</a><span>/</span>Kontakt</nav>
-    <h1>Kontaktujte nás</h1>
-    <p>Poradíme s výběrem techniky, servisem i financováním. Ozvěte se telefonicky nebo přes formulář — rádi pomůžeme.</p>
+    <nav class="breadcrumb"><a href="index.html">Úvod</a><span>/</span>Kontakty</nav>
+    <h1>Kontakty</h1>
+    <p>Sídlo v Olomouci a šest poboček po celé Moravě. Poradíme s výběrem techniky, servisem i financováním.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container contact">
     <div class="contact__info reveal">
-      <span class="eyebrow">Centrála</span>
+      <span class="eyebrow">Společnost</span>
       <h2>AGROTECHNIC MORAVIA a.s.</h2>
-      <p>Sídlo společnosti i hlavní pobočka. Otevírací doba Po–Pá 7:00–15:30.</p>
       <ul class="contact__list">
         <li><span>📍</span> Lipenská 1120/47, 779 00 Olomouc – Hodolany</li>
-        <li><span>📞</span> <a href="tel:+420720997752">720 997 752</a> (centrála Olomouc)</li>
-        <li><span>🕒</span> Po–Pá 7:00–15:30 · non-stop pobočky 24/7</li>
-        <li><span>🏢</span> IČ: 27839834 · člen koncernu AGROFERT</li>
+        <li><span>🏢</span> IČ: 27839834 · OR: KS v Ostravě, oddíl B 10060</li>
+        <li><span>🤝</span> Člen koncernu AGROFERT a.s.</li>
+        <li><span>👤</span> Ing. Roman Lžičař — ředitel · <a href="tel:+420602776956">602 776 956</a></li>
+        <li><span>✉️</span> <a href="mailto:roman.lzicar@navos-km.cz">roman.lzicar@navos-km.cz</a></li>
       </ul>
       <div class="map" style="margin-top:28px">
-        <iframe title="Mapa — Agrotechnic Moravia Olomouc" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        <iframe title="Mapa — sídlo Olomouc" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Lipensk%C3%A1%201120/47,%20779%2000%20Olomouc-Hodolany&output=embed"></iframe>
       </div>
     </div>
 
     <form class="contact__form reveal" onsubmit="return handleSubmit(event)">
+      <p style="font-family:'Sora';font-weight:700;font-size:1.15rem;margin-bottom:4px">Napište nám</p>
       <div class="field"><label for="name">Jméno a příjmení</label><input id="name" name="name" required placeholder="Vaše jméno" /></div>
       <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="vas@email.cz" /></div>
       <div class="field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel" placeholder="+420 …" /></div>
@@ -68,7 +69,7 @@
           <option>Nákup nové techniky</option>
           <option>Agrobazar — použitá technika</option>
           <option>Servis a náhradní díly</option>
-          <option>Financování / leasing</option>
+          <option>Finance, dotace, pojištění</option>
           <option>Jiný dotaz</option>
         </select>
       </div>
@@ -83,17 +84,65 @@
 <section class="section section--dark">
   <div class="container">
     <div class="section__head reveal">
-      <span class="eyebrow">Síť poboček</span>
+      <span class="eyebrow">Pobočky</span>
       <h2>Naše pobočky</h2>
-      <p>Šest poboček po celé Moravě. Otevírací doba Po–Pá 7:00–15:30, dvě pobočky non-stop.</p>
+      <p>Provozní doba Po–Pá 7:00–15:30, víkendy zavřeno. Vyznačené pobočky mají non-stop servisní linku.</p>
     </div>
-    <div class="branches">
-      <a href="tel:+420720997752" class="branch reveal"><h4>Olomouc</h4><span class="branch__phone">720 997 752</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
-      <a href="tel:+420725700580" class="branch reveal"><h4>Kroměříž</h4><span class="branch__phone">725 700 580</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
-      <a href="tel:+420583495212" class="branch reveal"><h4>Zábřeh</h4><span class="branch__phone">583 495 212</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
-      <a href="tel:+420515282611" class="branch reveal"><h4>Miroslav</h4><span class="branch__phone">515 282 611</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
-      <a href="tel:+420606078123" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Ratíškovice</h4><span class="branch__phone">606 078 123</span><span class="branch__hours">Nepřetržitě 24/7</span></a>
-      <a href="tel:+420601367042" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Bruntál</h4><span class="branch__phone">601 367 042</span><span class="branch__hours">Nepřetržitě 24/7</span></a>
+    <div class="locs">
+
+      <div class="loc reveal">
+        <h3>Olomouc</h3>
+        <div class="loc__row"><span>📍</span> Lipenská 1120/47, 779 00 Olomouc – Hodolany</div>
+        <div class="loc__row"><span>📞</span> <a href="tel:+420720997752">720 997 752</a></div>
+        <div class="loc__row"><span>🆘</span> Non-stop: <a href="tel:+420725761348">725 761 348</a></div>
+        <div class="loc__row"><span>🕒</span> Po–Pá 7:00–15:30</div>
+        <a class="loc__map" href="https://www.google.com/maps?q=Lipensk%C3%A1%201120/47,%20779%2000%20Olomouc-Hodolany" target="_blank" rel="noopener">Zobrazit na mapě ↗</a>
+      </div>
+
+      <div class="loc reveal">
+        <h3>Kroměříž</h3>
+        <div class="loc__row"><span>📍</span> Čelakovského 1858, 767 01 Kroměříž</div>
+        <div class="loc__row"><span>📞</span> Non-stop: <a href="tel:+420725700580">725 700 580</a></div>
+        <div class="loc__row"><span>🕒</span> Po–Pá 7:00–15:30</div>
+        <a class="loc__map" href="https://www.google.com/maps?q=%C4%8Celakovsk%C3%A9ho%201858,%20767%2001%20Krom%C4%9B%C5%99%C3%AD%C5%BE" target="_blank" rel="noopener">Zobrazit na mapě ↗</a>
+      </div>
+
+      <div class="loc reveal">
+        <h3>Zábřeh</h3>
+        <div class="loc__row"><span>📍</span> Leštinská 972/32, 789 01 Zábřeh</div>
+        <div class="loc__row"><span>📞</span> <a href="tel:+420583495212">583 495 212</a></div>
+        <div class="loc__row"><span>🆘</span> Non-stop: <a href="tel:+420724107431">724 107 431</a></div>
+        <div class="loc__row"><span>🕒</span> Po–Pá 7:00–15:30</div>
+        <a class="loc__map" href="https://www.google.com/maps?q=Le%C5%A1tinsk%C3%A1%20972/32,%20789%2001%20Z%C3%A1b%C5%99eh" target="_blank" rel="noopener">Zobrazit na mapě ↗</a>
+      </div>
+
+      <div class="loc reveal">
+        <h3>Miroslav</h3>
+        <div class="loc__row"><span>📍</span> Nádraží 1164, 671 72 Miroslav</div>
+        <div class="loc__row"><span>📞</span> <a href="tel:+420515282611">515 282 611</a> · <a href="tel:+420515282612">515 282 612</a></div>
+        <div class="loc__row"><span>🆘</span> Non-stop: <a href="tel:+420602518943">602 518 943</a></div>
+        <div class="loc__row"><span>🕒</span> Po–Pá 7:00–15:30</div>
+        <a class="loc__map" href="https://www.google.com/maps?q=N%C3%A1dra%C5%BE%C3%AD%201164,%20671%2072%20Miroslav" target="_blank" rel="noopener">Zobrazit na mapě ↗</a>
+      </div>
+
+      <div class="loc reveal">
+        <span class="loc__badge">NON-STOP</span>
+        <h3>Ratíškovice</h3>
+        <div class="loc__row"><span>📍</span> Za Mlýnem 1264, 696 02 Ratíškovice</div>
+        <div class="loc__row"><span>📞</span> <span class="loc__nonstop">Non-stop:</span> <a href="tel:+420606078123">606 078 123</a></div>
+        <div class="loc__row"><span>🕒</span> Po–Pá 7:00–15:30</div>
+        <a class="loc__map" href="https://www.google.com/maps?q=Za%20Ml%C3%BDnem%201264,%20696%2002%20Rat%C3%AD%C5%A1kovice" target="_blank" rel="noopener">Zobrazit na mapě ↗</a>
+      </div>
+
+      <div class="loc reveal">
+        <span class="loc__badge">NON-STOP</span>
+        <h3>Bruntál</h3>
+        <div class="loc__row"><span>📍</span> Krnovská 1979/18, 792 01 Bruntál</div>
+        <div class="loc__row"><span>📞</span> <span class="loc__nonstop">Non-stop:</span> <a href="tel:+420601367042">601 367 042</a></div>
+        <div class="loc__row"><span>🕒</span> Po–Pá 7:00–15:30</div>
+        <a class="loc__map" href="https://www.google.com/maps?q=Krnovsk%C3%A1%201979/18,%20792%2001%20Brunt%C3%A1l" target="_blank" rel="noopener">Zobrazit na mapě ↗</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -103,14 +152,15 @@
     <div class="footer__brand">
       <span class="brand__mark">AM</span>
       <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
-      <p>Člen koncernu AGROFERT · Autorizovaný partner New Holland.</p>
+      <p>Člen koncernu AGROFERT · Autorizovaný dealer New Holland.</p>
     </div>
     <nav class="footer__nav">
-      <a href="produkty.html">Produkty</a>
-      <a href="agrobazar.html">Agrobazar</a>
+      <a href="index.html">Produkty</a>
       <a href="aktuality.html">Aktuality</a>
-      <a href="index.html#sluzby">Služby</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="agrobazar.html">Agrobazar</a>
+      <a href="kontakt.html">Kontakty</a>
+      <a href="spolecnost.html">O společnosti</a>
     </nav>
     <div class="footer__legal">
       <span>© <span id="year"></span> AGROTECHNIC MORAVIA a.s.</span>

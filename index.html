@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="AGROTECHNIC MORAVIA a.s. — autorizovaný prodejce a servis zemědělské a stavební techniky New Holland. Člen koncernu AGROFERT. 6 poboček po celé Moravě." />
-<title>AGROTECHNIC MORAVIA a.s. — Zemědělská a stavební technika New Holland</title>
+<meta name="description" content="AGROTECHNIC MORAVIA a.s. — autorizovaný dealer a servis techniky New Holland Agriculture i Construction. Člen koncernu AGROFERT. Šest poboček na Moravě." />
+<title>AGROTECHNIC MORAVIA a.s. — New Holland Agriculture &amp; Construction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -14,17 +14,17 @@
 
 <header class="nav" id="nav">
   <div class="container nav__inner">
-    <a href="index.html#top" class="brand" aria-label="Agrotechnic Moravia">
+    <a href="index.html" class="brand" aria-label="Agrotechnic Moravia">
       <span class="brand__mark">AM</span>
       <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
     </a>
     <nav class="nav__links" id="navLinks">
-      <a href="produkty.html">Produkty</a>
-      <a href="agrobazar.html">Agrobazar</a>
+      <a href="index.html" class="active">Produkty</a>
       <a href="aktuality.html">Aktuality</a>
-      <a href="index.html#sluzby">Služby</a>
-      <a href="index.html#pobocky">Pobočky</a>
-      <a href="kontakt.html" class="nav__cta">Kontakt</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="agrobazar.html">Agrobazar</a>
+      <a href="spolecnost.html">O společnosti</a>
+      <a href="kontakt.html" class="nav__cta">Kontakty</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -39,17 +39,17 @@
   <div class="container hero__inner">
     <div class="hero__content reveal">
       <span class="pill">Člen koncernu AGROFERT</span>
-      <h1>Technika, která <span class="grad">posouvá</span> vaše hospodářství dál.</h1>
-      <p class="hero__lead">Autorizovaný prodej a servis zemědělských a stavebních strojů
-        <strong>New Holland</strong> a dalších špičkových značek. Šest poboček napříč Moravou,
-        non-stop servis a profesionální zázemí.</p>
+      <h1>Kde se potkává <span class="grad">tradice</span> s moderním zemědělstvím.</h1>
+      <p class="hero__lead">Autorizovaný dealer a servis techniky <strong>New Holland</strong> —
+        Agriculture i Construction. Na trhu od roku 2008, šest poboček na Moravě
+        a non-stop servisní zázemí pro vaše stroje.</p>
       <div class="hero__actions">
-        <a href="produkty.html" class="btn btn--primary">Prohlédnout techniku</a>
+        <a href="#produkty" class="btn btn--primary">Naše produkty</a>
         <a href="kontakt.html" class="btn btn--ghost">Kontaktovat nás</a>
       </div>
       <div class="hero__stats">
         <div><b data-count="6">0</b><span>poboček na Moravě</span></div>
-        <div><b data-count="12">0</b><span>partnerských značek</span></div>
+        <div><b data-count="2008">0</b><span>na trhu od roku</span></div>
         <div><b>24/7</b><span>non-stop servis</span></div>
       </div>
     </div>
@@ -60,141 +60,101 @@
 <!-- ANNOUNCEMENT -->
 <a href="aktuality.html" class="ticker reveal">
   <span class="ticker__tag">AKCE</span>
-  <span class="ticker__text">Navštivte nás na výstavě <strong>AGRISHOW Brno 2026</strong> · 12.–15. dubna</span>
+  <span class="ticker__text">Zveme vás na <strong>AGRISHOW Brno 2026</strong> · 12.–15. dubna</span>
   <span class="ticker__arrow">→</span>
 </a>
 
-<!-- PRODUCTS TEASER -->
+<!-- AGRICULTURE -->
 <section class="section" id="produkty">
   <div class="container">
     <div class="section__head reveal">
-      <span class="eyebrow">Sortiment</span>
-      <h2>Stroje pro každý úkol</h2>
-      <p>Kompletní portfolio zemědělské i stavební techniky New Holland — od polních prací po manipulaci na stavbě.</p>
+      <span class="eyebrow">Produkty</span>
+      <h2>New Holland Agriculture</h2>
+      <p>Kompletní program zemědělské techniky pro hospodářství každé velikosti.</p>
     </div>
-    <div class="prow">
-      <a class="prow__media reveal" href="produkty.html#agriculture">
-        <span class="tag">New Holland Agriculture</span>
-        <img src="https://loremflickr.com/800/600/tractor,farm?lock=11" alt="Zemědělská technika" loading="lazy" />
-      </a>
-      <div class="reveal">
-        <h3>Zemědělská technika</h3>
-        <p>Traktory, kombajny, lisy, technika pro sklizeň píce, precizní zemědělství PLMi i vinohradnické a komunální stroje.</p>
-        <ul class="plist">
-          <li>Traktory pro každou velikost hospodářství</li>
-          <li>Sklízecí technika a vysokotlaké lisy</li>
-          <li>Precizní zemědělství &amp; navigace</li>
-        </ul>
-        <p style="margin-top:22px"><a href="produkty.html#agriculture" class="btn btn--primary">Zobrazit zemědělskou techniku</a></p>
-      </div>
+    <div class="cards">
+      <article class="card reveal"><div class="card__icon">🚜</div><h4>Traktory</h4><p>Univerzální i výkonné modely New Holland pro každý provoz.</p></article>
+      <article class="card reveal"><div class="card__icon">🌾</div><h4>Sklizňové stroje</h4><p>Sklízecí mlátičky pro maximální výnos a čistotu zrna.</p></article>
+      <article class="card reveal"><div class="card__icon">📦</div><h4>Svinovací a vysokotlaké lisy</h4><p>Lisy a technika pro sklizeň a zpracování píce.</p></article>
+      <article class="card reveal"><div class="card__icon">🎯</div><h4>PLMi — precizní zemědělství</h4><p>Navigace, automatické řízení a správa dat na poli.</p></article>
+      <article class="card reveal"><div class="card__icon">🏙️</div><h4>Komunální technika</h4><p>Stroje pro celoroční údržbu obcí a ploch.</p></article>
+      <article class="card reveal"><div class="card__icon">🍇</div><h4>Viniční technika</h4><p>Mechanizace pro chmelnice, sady a vinice.</p></article>
     </div>
-    <div class="prow">
-      <a class="prow__media reveal" href="produkty.html#construction">
-        <span class="tag tag--blue">New Holland Construction</span>
-        <img src="https://loremflickr.com/800/600/excavator,construction?lock=21" alt="Stavební technika" loading="lazy" />
-      </a>
-      <div class="reveal">
-        <h3>Stavební technika</h3>
-        <p>Smykové i kolové nakladače, minibagry, rýpadlo-nakladače a teleskopické manipulátory pro náročný stavební provoz.</p>
-        <ul class="plist">
-          <li>Smykové a kloubové nakladače</li>
-          <li>Minibagry a rýpadlo-nakladače</li>
-          <li>Teleskopické manipulátory</li>
-        </ul>
-        <p style="margin-top:22px"><a href="produkty.html#construction" class="btn btn--primary">Zobrazit stavební techniku</a></p>
-      </div>
+  </div>
+</section>
+
+<!-- CONSTRUCTION -->
+<section class="section section--alt" id="construction">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">Produkty</span>
+      <h2>New Holland Construction</h2>
+      <p>Stavební technika pro náročný provoz — od nakladačů po manipulátory.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal"><div class="card__icon">🛞</div><h4>Smykem řízené nakladače řady L</h4><p>Obratné a univerzální kompaktní nakladače.</p></article>
+      <article class="card reveal"><div class="card__icon">🏗️</div><h4>Kloubové nakladače řady W</h4><p>Výkonné kolové nakladače pro těžký provoz.</p></article>
+      <article class="card reveal"><div class="card__icon">⛏️</div><h4>Minirýpadla řady E</h4><p>Přesnost a výkon i v omezeném prostoru.</p></article>
+      <article class="card reveal"><div class="card__icon">🚧</div><h4>Rypadlonakladače řady B</h4><p>Univerzální stroje pro výkop i nakládku.</p></article>
+      <article class="card reveal"><div class="card__icon">🛠️</div><h4>Kompaktní kloubové nakladače řady W</h4><p>Kompaktní rozměry, plný výkon.</p></article>
+      <article class="card reveal"><div class="card__icon">🔭</div><h4>Teleskopické manipulátory TH</h4><p>Dosah a nosnost pro zemědělství i stavbu.</p></article>
     </div>
   </div>
 </section>
 
 <!-- BRANDS -->
-<section class="section section--alt" id="znacky">
+<section class="section" id="znacky">
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Partneři</span>
-      <h2>Značky, kterým důvěřujeme</h2>
-      <p>Vedle New Holland zastupujeme prověřené evropské i světové výrobce.</p>
+      <h2>Zastoupené značky</h2>
+      <p>Vedle New Holland dodáváme techniku prověřených evropských i světových výrobců.</p>
     </div>
     <div class="brands reveal">
       <span>New Holland</span><span>Amazone</span><span>Tehnos</span><span>Pichon</span>
       <span>Strautmann</span><span>OPaLL-Agri</span><span>Raven</span><span>ZDT</span>
       <span>Molčík</span><span>Fornal</span><span>Provitis</span><span>FJDynamics</span>
     </div>
+    <p style="text-align:center;color:var(--ink-soft);margin-top:26px;font-size:14.5px">
+      Výhradní dovozce strojů New Holland do ČR: <strong>AGROTEC a.s.</strong>
+    </p>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="sluzby">
+<!-- SERVICES TEASER -->
+<section class="section section--alt" id="sluzby">
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Služby</span>
-      <h2>Více než jen prodej</h2>
-      <p>Postaráme se o vaši techniku po celou dobu její životnosti.</p>
+      <h2>Postaráme se o vaši techniku</h2>
+      <p>Autorizovaný servis na šesti pobočkách a komplexní finanční služby při pořízení techniky.</p>
     </div>
     <div class="features">
-      <div class="feature reveal"><div class="feature__ic">🔧</div><h4>Autorizovaný servis</h4><p>Odborné opravy a údržba certifikovanými techniky přímo u nás i v terénu.</p></div>
-      <div class="feature reveal"><div class="feature__ic">⏱️</div><h4>Non-stop podpora</h4><p>Pobočky Ratíškovice a Bruntál fungují v režimu non-stop, kdykoliv to potřebujete.</p></div>
-      <div class="feature reveal"><div class="feature__ic">🛒</div><h4>Agrobazar</h4><p>Prověřené použité stroje za výhodné ceny s naší zárukou kvality.</p></div>
-      <div class="feature reveal"><div class="feature__ic">📦</div><h4>Náhradní díly</h4><p>Originální díly skladem i na objednávku s rychlým dodáním.</p></div>
-      <div class="feature reveal"><div class="feature__ic">💬</div><h4>Odborné poradenství</h4><p>Pomůžeme vybrat techniku přesně na míru vašemu provozu.</p></div>
-      <div class="feature reveal"><div class="feature__ic">💳</div><h4>Financování</h4><p>Výhodné možnosti financování a leasingu nové i použité techniky.</p></div>
+      <div class="feature reveal"><div class="feature__ic">🔧</div><h4>Autorizovaný servis</h4><p>Odborné opravy a údržba techniky New Holland na všech pobočkách i v terénu.</p></div>
+      <div class="feature reveal"><div class="feature__ic">⏱️</div><h4>Non-stop výjezd</h4><p>Servisní non-stop linky na pobočkách pro řešení poruch v sezóně.</p></div>
+      <div class="feature reveal"><div class="feature__ic">💳</div><h4>Finance, dotace, pojištění</h4><p>Výhodné komplexní financování a poradenství při pořízení techniky.</p></div>
     </div>
+    <p style="text-align:center;margin-top:34px"><a href="sluzby.html" class="btn btn--primary">Více o službách</a></p>
   </div>
 </section>
 
-<!-- BRANCHES -->
+<!-- BRANCHES TEASER -->
 <section class="section section--dark" id="pobocky">
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Síť poboček</span>
       <h2>Najdete nás po celé Moravě</h2>
-      <p>Šest poboček s otevírací dobou Po–Pá 7:00–15:30. Dvě pobočky non-stop.</p>
+      <p>Šest poboček s provozní dobou Po–Pá 7:00–15:30 a non-stop servisními linkami.</p>
     </div>
     <div class="branches">
       <a href="tel:+420720997752" class="branch reveal"><h4>Olomouc</h4><span class="branch__phone">720 997 752</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
       <a href="tel:+420725700580" class="branch reveal"><h4>Kroměříž</h4><span class="branch__phone">725 700 580</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
       <a href="tel:+420583495212" class="branch reveal"><h4>Zábřeh</h4><span class="branch__phone">583 495 212</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
       <a href="tel:+420515282611" class="branch reveal"><h4>Miroslav</h4><span class="branch__phone">515 282 611</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
-      <a href="tel:+420606078123" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Ratíškovice</h4><span class="branch__phone">606 078 123</span><span class="branch__hours">Nepřetržitě 24/7</span></a>
-      <a href="tel:+420601367042" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Bruntál</h4><span class="branch__phone">601 367 042</span><span class="branch__hours">Nepřetržitě 24/7</span></a>
+      <a href="tel:+420606078123" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Ratíškovice</h4><span class="branch__phone">606 078 123</span><span class="branch__hours">Non-stop servis</span></a>
+      <a href="tel:+420601367042" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Bruntál</h4><span class="branch__phone">601 367 042</span><span class="branch__hours">Non-stop servis</span></a>
     </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="onas">
-  <div class="container about">
-    <div class="about__text reveal">
-      <span class="eyebrow">O společnosti</span>
-      <h2>AGROTECHNIC MORAVIA a.s.</h2>
-      <p>Jsme silným a stabilním partnerem moravských zemědělců a stavebních firem.
-        Jako autorizovaný prodejce a servis značky New Holland nabízíme kompletní
-        péči o vaši techniku — od výběru a prodeje přes financování až po dlouhodobý servis.</p>
-      <p>Společnost AGROTECHNIC MORAVIA a.s. je <strong>členem koncernu AGROFERT</strong>,
-        což nám dává zázemí, stabilitu a sílu jedné z největších skupin v regionu.</p>
-      <div class="about__meta">
-        <div><b>IČ</b><span>27839834</span></div>
-        <div><b>Sídlo</b><span>Lipenská 1120/47, 779 00 Olomouc – Hodolany</span></div>
-        <div><b>Zápis</b><span>OR vedený KS v Ostravě, oddíl B 10060</span></div>
-      </div>
-    </div>
-    <div class="about__panel reveal">
-      <div class="about__stat"><b>2008+</b><span>na trhu s technikou</span></div>
-      <div class="about__stat"><b>6</b><span>poboček</span></div>
-      <div class="about__stat"><b>AGROFERT</b><span>silné zázemí koncernu</span></div>
-      <div class="about__stat"><b>New Holland</b><span>autorizovaný partner</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section section--tight">
-  <div class="container">
-    <div class="cta reveal">
-      <h2>Pomůžeme vybrat techniku na míru</h2>
-      <p>Ozvěte se nám — poradíme s výběrem, servisem i financováním nové či použité techniky.</p>
-      <a href="kontakt.html" class="btn btn--white">Nezávazná poptávka</a>
-    </div>
+    <p style="text-align:center;margin-top:34px"><a href="kontakt.html" class="btn btn--white">Všechny kontakty a adresy</a></p>
   </div>
 </section>
 
@@ -203,14 +163,15 @@
     <div class="footer__brand">
       <span class="brand__mark">AM</span>
       <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
-      <p>Člen koncernu AGROFERT · Autorizovaný partner New Holland.</p>
+      <p>Člen koncernu AGROFERT · Autorizovaný dealer New Holland.</p>
     </div>
     <nav class="footer__nav">
-      <a href="produkty.html">Produkty</a>
-      <a href="agrobazar.html">Agrobazar</a>
+      <a href="index.html">Produkty</a>
       <a href="aktuality.html">Aktuality</a>
-      <a href="index.html#sluzby">Služby</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="sluzby.html">Služby</a>
+      <a href="agrobazar.html">Agrobazar</a>
+      <a href="kontakt.html">Kontakty</a>
+      <a href="spolecnost.html">O společnosti</a>
     </nav>
     <div class="footer__legal">
       <span>© <span id="year"></span> AGROTECHNIC MORAVIA a.s.</span>

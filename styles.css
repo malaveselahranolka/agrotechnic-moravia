@@ -358,6 +358,19 @@ img{max-width:100%}
 
 .section--tight{padding:72px 0}
 
+/* Location (branch detail) cards */
+.locs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.loc{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:26px;transition:.3s var(--ease)}
+.loc:hover{background:rgba(255,255,255,.07);border-color:rgba(126,217,87,.35);transform:translateY(-4px)}
+.loc__badge{position:absolute;top:20px;right:20px;background:var(--lime);color:#0b1411;font-size:10.5px;font-weight:800;letter-spacing:.05em;padding:4px 9px;border-radius:6px}
+.loc h3{font-size:1.3rem;margin-bottom:12px}
+.loc__row{display:flex;gap:10px;font-size:14.5px;color:#c4d3cb;margin-bottom:9px;align-items:flex-start}
+.loc__row span{flex-shrink:0}
+.loc__row a{color:#fff;font-weight:600}
+.loc__row a:hover{color:var(--lime)}
+.loc__nonstop{color:var(--lime);font-weight:600}
+.loc__map{display:inline-block;margin-top:6px;font-size:13.5px;color:var(--lime);font-weight:600}
+
 /* Active nav link */
 .nav__links a.active{color:#fff}
 .nav.scrolled .nav__links a.active{color:var(--green)}
