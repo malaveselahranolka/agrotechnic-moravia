@@ -153,9 +153,10 @@ img{max-width:100%;display:block}
 .pitem:hover .pitem__name{color:#fff}
 .pitem:hover .pitem__arrow{color:var(--nh-yellow);transform:translateX(8px)}
 .section--blue .pitem:hover,.section--ink .pitem:hover{background:#fff;color:var(--ink)}
-.section--blue .pitem:hover .pitem__name{color:var(--ink)}
-.section--blue .pitem:hover .pitem__meta{color:var(--ink-soft)}
-.section--blue .pitem:hover .pitem__arrow{color:var(--nh-blue)}
+.section--blue .pitem:hover .pitem__name,.section--ink .pitem:hover .pitem__name{color:var(--ink)}
+.section--blue .pitem:hover .pitem__no,.section--ink .pitem:hover .pitem__no{color:var(--ink-soft)}
+.section--blue .pitem:hover .pitem__meta,.section--ink .pitem:hover .pitem__meta{color:var(--ink-soft)}
+.section--blue .pitem:hover .pitem__arrow,.section--ink .pitem:hover .pitem__arrow{color:var(--nh-blue)}
 @media(max-width:640px){
   .pitem{grid-template-columns:40px 1fr auto;gap:14px;padding:20px 4px}
   .pitem__meta{display:none}
