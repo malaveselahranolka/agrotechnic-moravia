@@ -41,20 +41,32 @@ const cio = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 document.querySelectorAll('[data-count]').forEach(c => cio.observe(c));
 
-// ---- Product floating preview ----
+// ---- Product floating preview (only shows once the image is actually loaded) ----
 const pfloat = document.getElementById('pfloat');
 if (pfloat) {
   const pimg = pfloat.querySelector('img');
   const items = document.querySelectorAll('.pitem[data-img]');
+  let hovering = null;
   const move = (e) => { pfloat.style.left = e.clientX + 'px'; pfloat.style.top = e.clientY + 'px'; };
+  const loaded = () => pimg.complete && pimg.naturalWidth > 0;
   items.forEach(it => {
     it.addEventListener('mouseenter', () => {
-      pimg.src = it.dataset.img;
-      pfloat.classList.add('show');
+      hovering = it;
+      const src = it.dataset.img;
+      if (pimg.getAttribute('src') === src && loaded()) {
+        pfloat.classList.add('show');
+      } else {
+        pfloat.classList.remove('show');   // hide until the new image is ready
+        pimg.setAttribute('src', src);
+      }
     });
     it.addEventListener('mousemove', move);
-    it.addEventListener('mouseleave', () => pfloat.classList.remove('show'));
+    it.addEventListener('mouseleave', () => {
+      if (hovering === it) { hovering = null; pfloat.classList.remove('show'); }
+    });
   });
+  pimg.addEventListener('load', () => { if (hovering) pfloat.classList.add('show'); });
+  pimg.addEventListener('error', () => pfloat.classList.remove('show'));
 }
 
 // ---- Graceful image fallback ----
