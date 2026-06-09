@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Kontakt na Agrotechnic Moravia a.s. — sídlo Olomouc, 6 poboček po Moravě, telefony a nezávazná poptávka techniky a servisu." />
+<title>Kontakt — AGROTECHNIC MORAVIA a.s.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="index.html#top" class="brand" aria-label="Agrotechnic Moravia">
+      <span class="brand__mark">AM</span>
+      <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="produkty.html">Produkty</a>
+      <a href="agrobazar.html">Agrobazar</a>
+      <a href="aktuality.html">Aktuality</a>
+      <a href="index.html#sluzby">Služby</a>
+      <a href="index.html#pobocky">Pobočky</a>
+      <a href="kontakt.html" class="nav__cta active">Kontakt</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="subhero">
+  <div class="subhero__bg"><img src="https://loremflickr.com/1600/700/farm,tractor,sunset?lock=91" alt="" loading="eager" /></div>
+  <div class="container subhero__inner">
+    <nav class="breadcrumb"><a href="index.html">Úvod</a><span>/</span>Kontakt</nav>
+    <h1>Kontaktujte nás</h1>
+    <p>Poradíme s výběrem techniky, servisem i financováním. Ozvěte se telefonicky nebo přes formulář — rádi pomůžeme.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact">
+    <div class="contact__info reveal">
+      <span class="eyebrow">Centrála</span>
+      <h2>AGROTECHNIC MORAVIA a.s.</h2>
+      <p>Sídlo společnosti i hlavní pobočka. Otevírací doba Po–Pá 7:00–15:30.</p>
+      <ul class="contact__list">
+        <li><span>📍</span> Lipenská 1120/47, 779 00 Olomouc – Hodolany</li>
+        <li><span>📞</span> <a href="tel:+420720997752">720 997 752</a> (centrála Olomouc)</li>
+        <li><span>🕒</span> Po–Pá 7:00–15:30 · non-stop pobočky 24/7</li>
+        <li><span>🏢</span> IČ: 27839834 · člen koncernu AGROFERT</li>
+      </ul>
+      <div class="map" style="margin-top:28px">
+        <iframe title="Mapa — Agrotechnic Moravia Olomouc" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Lipensk%C3%A1%201120/47,%20779%2000%20Olomouc-Hodolany&output=embed"></iframe>
+      </div>
+    </div>
+
+    <form class="contact__form reveal" onsubmit="return handleSubmit(event)">
+      <div class="field"><label for="name">Jméno a příjmení</label><input id="name" name="name" required placeholder="Vaše jméno" /></div>
+      <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="vas@email.cz" /></div>
+      <div class="field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel" placeholder="+420 …" /></div>
+      <div class="field"><label for="topic">Téma</label>
+        <select id="topic" name="topic" style="font-family:inherit;font-size:15px;padding:13px 15px;border:1px solid var(--line);border-radius:11px;background:var(--surface-alt);color:var(--ink)">
+          <option>Nákup nové techniky</option>
+          <option>Agrobazar — použitá technika</option>
+          <option>Servis a náhradní díly</option>
+          <option>Financování / leasing</option>
+          <option>Jiný dotaz</option>
+        </select>
+      </div>
+      <div class="field"><label for="msg">Zpráva</label><textarea id="msg" name="msg" rows="4" required placeholder="S čím vám můžeme pomoci?"></textarea></div>
+      <button type="submit" class="btn btn--primary btn--full">Odeslat poptávku</button>
+      <p class="form__note" id="formNote" hidden>Děkujeme! Otevřeli jsme váš e-mailový klient s předvyplněnou zprávou — stačí ji odeslat.</p>
+    </form>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">Síť poboček</span>
+      <h2>Naše pobočky</h2>
+      <p>Šest poboček po celé Moravě. Otevírací doba Po–Pá 7:00–15:30, dvě pobočky non-stop.</p>
+    </div>
+    <div class="branches">
+      <a href="tel:+420720997752" class="branch reveal"><h4>Olomouc</h4><span class="branch__phone">720 997 752</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
+      <a href="tel:+420725700580" class="branch reveal"><h4>Kroměříž</h4><span class="branch__phone">725 700 580</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
+      <a href="tel:+420583495212" class="branch reveal"><h4>Zábřeh</h4><span class="branch__phone">583 495 212</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
+      <a href="tel:+420515282611" class="branch reveal"><h4>Miroslav</h4><span class="branch__phone">515 282 611</span><span class="branch__hours">Po–Pá 7:00–15:30</span></a>
+      <a href="tel:+420606078123" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Ratíškovice</h4><span class="branch__phone">606 078 123</span><span class="branch__hours">Nepřetržitě 24/7</span></a>
+      <a href="tel:+420601367042" class="branch reveal branch--nonstop"><span class="branch__badge">NON-STOP</span><h4>Bruntál</h4><span class="branch__phone">601 367 042</span><span class="branch__hours">Nepřetržitě 24/7</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="brand__mark">AM</span>
+      <span class="brand__text">AGROTECHNIC<strong>MORAVIA</strong></span>
+      <p>Člen koncernu AGROFERT · Autorizovaný partner New Holland.</p>
+    </div>
+    <nav class="footer__nav">
+      <a href="produkty.html">Produkty</a>
+      <a href="agrobazar.html">Agrobazar</a>
+      <a href="aktuality.html">Aktuality</a>
+      <a href="index.html#sluzby">Služby</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <div class="footer__legal">
+      <span>© <span id="year"></span> AGROTECHNIC MORAVIA a.s.</span>
+      <span>IČ: 27839834</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
