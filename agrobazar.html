@@ -27,7 +27,11 @@
   <div class="container nav__inner">
     <a href="index.html" class="brand" aria-label="Agrotechnic Moravia"><img class="brand__logo" src="logo.png" alt="AGROTECHNIC MORAVIA" /></a>
     <nav class="nav__links" id="navLinks">
-      <a href="index.html">Produkty</a>
+      <div class="nav__item nav__item--drop">
+        <a href="index.html" class="nav__toplink">Produkty</a>
+        <button class="caret" aria-label="Rozbalit produkty">▾</button>
+        <div class="dropdown" id="prodDropdown"></div>
+      </div>
       <a href="aktuality.html">Aktuality</a>
       <a href="sluzby.html">Služby</a>
       <a href="agrobazar.html" class="active">Agrobazar</a>

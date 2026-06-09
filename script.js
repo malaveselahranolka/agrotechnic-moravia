@@ -16,6 +16,51 @@ if (toggle && links) {
   );
 }
 
+// ---- Products mega-dropdown (image + external link) ----
+const NHM = 'https://www.eagrotec.cz/products/nakladace-a-manipulatory/';
+const PRODUCTS = {
+  agri: { title: 'New Holland Agriculture', items: [
+    { n: 'Traktory', u: 'https://www.eagrotec.cz/produkty/traktory', img: 'assets/img/p-traktory.jpg' },
+    { n: 'Sklizňové stroje', u: 'https://www.eagrotec.cz/produkty/skliznove-stroje', img: 'assets/img/p-skliznove.jpg' },
+    { n: 'Svinovací a vysokotlaké lisy', u: 'https://www.eagrotec.cz/produkty/svinovaci-lisy', img: 'assets/img/p-lisy.png' },
+    { n: 'PLMi — precizní zemědělství', u: 'https://www.eagrotec.cz/products/navigace', img: 'assets/img/p-plmi.png' },
+    { n: 'Komunální technika', u: 'https://www.eagrotec.cz/products/komunalni-technika', img: 'assets/img/p-komunalni.png' },
+    { n: 'Viniční technika', u: 'https://www.eagrotec.cz/produkty/vinicni-technika', img: 'assets/img/p-vinicni.png' },
+    { n: 'Reklamní předměty', u: 'http://shop.eagrotec.cz/', img: 'assets/img/p-reklamni.jpg' },
+  ]},
+  constr: { title: 'New Holland Construction', items: [
+    { n: 'Smykem řízené nakladače řady L', u: NHM + 'l213-l234', img: 'assets/img/p-smykem-l.jpg' },
+    { n: 'Kloubové nakladače řady W', u: NHM + 'klbove-nakladace-w', img: 'assets/img/p-kloubove-w.png' },
+    { n: 'Minirýpadla řady E', u: NHM + 'mini-rypadla-e', img: 'assets/img/p-minirypadla-e.jpg' },
+    { n: 'Rypadlonakladače řady B', u: NHM + 'rypadlove-nakladace-b', img: 'assets/img/p-rypadlo-b.png' },
+    { n: 'Kompaktní kloubové nakladače řady W', u: NHM + 'kompaktne-nakladace-w', img: 'assets/img/p-kompaktni-w.png' },
+    { n: 'Teleskopické manipulátory TH', u: NHM + 'teleskopicke-manipulatory-th', img: 'assets/img/p-teleskop-th.png' },
+  ]},
+};
+const dropdown = document.getElementById('prodDropdown');
+if (dropdown) {
+  const group = (g) => `
+    <div class="mega__group">
+      <h4>${g.title}</h4>
+      <div class="mega__grid">
+        ${g.items.map(it => `
+          <a class="mega__card" href="${it.u}" target="_blank" rel="noopener">
+            <img src="${it.img}" alt="" loading="lazy" />
+            <span>${it.n} <i>↗</i></span>
+          </a>`).join('')}
+      </div>
+    </div>`;
+  dropdown.innerHTML = `<div class="megamenu container">${group(PRODUCTS.agri)}${group(PRODUCTS.constr)}</div>`;
+}
+// mobile caret toggle for the dropdown
+document.querySelectorAll('.nav__item--drop .caret').forEach(c => {
+  c.addEventListener('click', (e) => {
+    if (window.innerWidth > 1024) return;        // desktop uses hover
+    e.preventDefault();
+    c.closest('.nav__item--drop').classList.toggle('open');
+  });
+});
+
 // ---- Reveal on scroll ----
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {

@@ -27,7 +27,11 @@
   <div class="container nav__inner">
     <a href="index.html" class="brand" aria-label="Agrotechnic Moravia"><img class="brand__logo" src="logo.png" alt="AGROTECHNIC MORAVIA" /></a>
     <nav class="nav__links" id="navLinks">
-      <a href="index.html" class="active">Produkty</a>
+      <div class="nav__item nav__item--drop">
+        <a href="index.html" class="nav__toplink active">Produkty</a>
+        <button class="caret" aria-label="Rozbalit produkty">▾</button>
+        <div class="dropdown" id="prodDropdown"></div>
+      </div>
       <a href="aktuality.html">Aktuality</a>
       <a href="sluzby.html">Služby</a>
       <a href="agrobazar.html">Agrobazar</a>
@@ -76,29 +80,33 @@
     </div>
 
     <div class="plist reveal">
-      <a class="pitem" href="https://www.eagrotec.cz/produkty/traktory" target="_blank" rel="noopener" data-img="assets/img/tractor-t7.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/produkty/traktory" target="_blank" rel="noopener" data-img="assets/img/p-traktory.jpg">
         <span class="pitem__no">01</span><span><span class="pitem__name">Traktory</span></span>
         <span class="pitem__meta">Univerzální i výkonné modely pro každý provoz</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/skliznove-stroje/" target="_blank" rel="noopener" data-img="assets/img/combine-cx880.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/produkty/skliznove-stroje" target="_blank" rel="noopener" data-img="assets/img/p-skliznove.jpg">
         <span class="pitem__no">02</span><span><span class="pitem__name">Sklizňové stroje</span></span>
         <span class="pitem__meta">Sklízecí mlátičky pro maximální výnos a čistotu zrna</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/produkty/svinovaci-lisy" target="_blank" rel="noopener" data-img="assets/img/baler-688.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/produkty/svinovaci-lisy" target="_blank" rel="noopener" data-img="assets/img/p-lisy.png">
         <span class="pitem__no">03</span><span><span class="pitem__name">Svinovací a vysokotlaké lisy</span></span>
         <span class="pitem__meta">Lisy a technika pro sklizeň a zpracování píce</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.newholland.com/Pages/index.html" target="_blank" rel="noopener" data-img="assets/img/tractor-t6-plow.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/navigace" target="_blank" rel="noopener" data-img="assets/img/p-plmi.png">
         <span class="pitem__no">04</span><span><span class="pitem__name">PLMi — precizní zemědělství</span></span>
         <span class="pitem__meta">Navigace, automatické řízení a správa dat na poli</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/komunalni-technika/" target="_blank" rel="noopener" data-img="assets/img/tractor-t7.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/komunalni-technika" target="_blank" rel="noopener" data-img="assets/img/p-komunalni.png">
         <span class="pitem__no">05</span><span><span class="pitem__name">Komunální technika</span></span>
         <span class="pitem__meta">Stroje pro celoroční údržbu obcí a ploch</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.newholland.com/Pages/index.html" target="_blank" rel="noopener" data-img="assets/img/vineyard.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/produkty/vinicni-technika" target="_blank" rel="noopener" data-img="assets/img/p-vinicni.png">
         <span class="pitem__no">06</span><span><span class="pitem__name">Viniční technika</span></span>
         <span class="pitem__meta">Mechanizace pro chmelnice, sady a vinice</span><span class="pitem__arrow">↗</span>
+      </a>
+      <a class="pitem" href="http://shop.eagrotec.cz/" target="_blank" rel="noopener" data-img="assets/img/p-reklamni.jpg">
+        <span class="pitem__no">07</span><span><span class="pitem__name">Reklamní předměty</span></span>
+        <span class="pitem__meta">Merch a reklamní předměty New Holland v e-shopu</span><span class="pitem__arrow">↗</span>
       </a>
     </div>
   </div>
@@ -117,27 +125,27 @@
     </div>
 
     <div class="plist reveal">
-      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/" target="_blank" rel="noopener" data-img="assets/img/skid-l218.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/l213-l234" target="_blank" rel="noopener" data-img="assets/img/p-smykem-l.jpg">
         <span class="pitem__no">01</span><span><span class="pitem__name">Smykem řízené nakladače řady L</span></span>
         <span class="pitem__meta">Obratné a univerzální kompaktní nakladače</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/" target="_blank" rel="noopener" data-img="assets/img/loader-moscow.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/klbove-nakladace-w" target="_blank" rel="noopener" data-img="assets/img/p-kloubove-w.png">
         <span class="pitem__no">02</span><span><span class="pitem__name">Kloubové nakladače řady W</span></span>
         <span class="pitem__meta">Výkonné kolové nakladače pro těžký provoz</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/" target="_blank" rel="noopener" data-img="assets/img/excavator-e135.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/mini-rypadla-e" target="_blank" rel="noopener" data-img="assets/img/p-minirypadla-e.jpg">
         <span class="pitem__no">03</span><span><span class="pitem__name">Minirýpadla řady E</span></span>
         <span class="pitem__meta">Přesnost a výkon i v omezeném prostoru</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/" target="_blank" rel="noopener" data-img="assets/img/backhoe-lb85.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/rypadlove-nakladace-b" target="_blank" rel="noopener" data-img="assets/img/p-rypadlo-b.png">
         <span class="pitem__no">04</span><span><span class="pitem__name">Rypadlonakladače řady B</span></span>
         <span class="pitem__meta">Univerzální stroje pro výkop i nakládku</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/" target="_blank" rel="noopener" data-img="assets/img/compact-c314x.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/kompaktne-nakladace-w" target="_blank" rel="noopener" data-img="assets/img/p-kompaktni-w.png">
         <span class="pitem__no">05</span><span><span class="pitem__name">Kompaktní kloubové nakladače řady W</span></span>
         <span class="pitem__meta">Kompaktní rozměry, plný výkon</span><span class="pitem__arrow">↗</span>
       </a>
-      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/" target="_blank" rel="noopener" data-img="assets/img/telehandler-th742.jpg">
+      <a class="pitem" href="https://www.eagrotec.cz/products/nakladace-a-manipulatory/teleskopicke-manipulatory-th" target="_blank" rel="noopener" data-img="assets/img/p-teleskop-th.png">
         <span class="pitem__no">06</span><span><span class="pitem__name">Teleskopické manipulátory TH</span></span>
         <span class="pitem__meta">Dosah a nosnost pro zemědělství i stavbu</span><span class="pitem__arrow">↗</span>
       </a>

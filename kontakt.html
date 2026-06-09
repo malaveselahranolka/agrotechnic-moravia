@@ -27,7 +27,11 @@
   <div class="container nav__inner">
     <a href="index.html" class="brand" aria-label="Agrotechnic Moravia"><img class="brand__logo" src="logo.png" alt="AGROTECHNIC MORAVIA" /></a>
     <nav class="nav__links" id="navLinks">
-      <a href="index.html">Produkty</a>
+      <div class="nav__item nav__item--drop">
+        <a href="index.html" class="nav__toplink">Produkty</a>
+        <button class="caret" aria-label="Rozbalit produkty">▾</button>
+        <div class="dropdown" id="prodDropdown"></div>
+      </div>
       <a href="aktuality.html">Aktuality</a>
       <a href="sluzby.html">Služby</a>
       <a href="agrobazar.html">Agrobazar</a>
@@ -180,7 +184,7 @@
 
     <div class="bmaps reveal">
       <div class="bmap">
-        <iframe class="bmap__frame" loading="lazy" title="Mapa Olomouc" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Lipensk%C3%A1%201120/47,%20779%2000%20Olomouc-Hodolany&output=embed"></iframe>
+        <img class="bmap__frame" loading="lazy" alt="Pobočka Olomouc" src="assets/img/b-olomouc.jpg" />
         <div class="bmap__body">
           <h3>Olomouc <span class="bmap__badge">SÍDLO</span></h3>
           <div class="bmap__row"><span>📍</span> Lipenská 1120/47, 779 00 Olomouc – Hodolany</div>
@@ -192,7 +196,7 @@
       </div>
 
       <div class="bmap">
-        <iframe class="bmap__frame" loading="lazy" title="Mapa Kroměříž" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%C4%8Celakovsk%C3%A9ho%201858,%20767%2001%20Krom%C4%9B%C5%99%C3%AD%C5%BE&output=embed"></iframe>
+        <img class="bmap__frame" loading="lazy" alt="Pobočka Kroměříž" src="assets/img/b-kromeriz.jpg" />
         <div class="bmap__body">
           <h3>Kroměříž</h3>
           <div class="bmap__row"><span>📍</span> Čelakovského 1858, 767 01 Kroměříž</div>
@@ -203,7 +207,7 @@
       </div>
 
       <div class="bmap">
-        <iframe class="bmap__frame" loading="lazy" title="Mapa Zábřeh" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Le%C5%A1tinsk%C3%A1%20972/32,%20789%2001%20Z%C3%A1b%C5%99eh&output=embed"></iframe>
+        <img class="bmap__frame" loading="lazy" alt="Pobočka Zábřeh" src="assets/img/b-zabreh.jpg" />
         <div class="bmap__body">
           <h3>Zábřeh</h3>
           <div class="bmap__row"><span>📍</span> Leštinská 972/32, 789 01 Zábřeh</div>
@@ -215,7 +219,7 @@
       </div>
 
       <div class="bmap">
-        <iframe class="bmap__frame" loading="lazy" title="Mapa Miroslav" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=N%C3%A1dra%C5%BE%C3%AD%201164,%20671%2072%20Miroslav&output=embed"></iframe>
+        <img class="bmap__frame" loading="lazy" alt="Pobočka Miroslav" src="assets/img/b-miroslav.jpg" />
         <div class="bmap__body">
           <h3>Miroslav</h3>
           <div class="bmap__row"><span>📍</span> Nádraží 1164, 671 72 Miroslav</div>
@@ -227,7 +231,7 @@
       </div>
 
       <div class="bmap">
-        <iframe class="bmap__frame" loading="lazy" title="Mapa Ratíškovice" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Za%20Ml%C3%BDnem%201264,%20696%2002%20Rat%C3%AD%C5%A1kovice&output=embed"></iframe>
+        <img class="bmap__frame" loading="lazy" alt="Pobočka Ratíškovice" src="assets/img/b-ratiskovice.jpg" />
         <div class="bmap__body">
           <h3>Ratíškovice <span class="bmap__badge">NON-STOP</span></h3>
           <div class="bmap__row"><span>📍</span> Za Mlýnem 1264, 696 02 Ratíškovice</div>
@@ -238,7 +242,7 @@
       </div>
 
       <div class="bmap">
-        <iframe class="bmap__frame" loading="lazy" title="Mapa Bruntál" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Krnovsk%C3%A1%201979/18,%20792%2001%20Brunt%C3%A1l&output=embed"></iframe>
+        <img class="bmap__frame" loading="lazy" alt="Pobočka Bruntál" src="assets/img/b-bruntal.jpg" />
         <div class="bmap__body">
           <h3>Bruntál <span class="bmap__badge">NON-STOP</span></h3>
           <div class="bmap__row"><span>📍</span> Krnovská 1979/18, 792 01 Bruntál</div>
