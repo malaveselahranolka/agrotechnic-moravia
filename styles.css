@@ -392,7 +392,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
   .nav__item--drop.open .caret{transform:rotate(180deg)}
   .dropdown{position:static;visibility:visible;transform:none;display:block;box-shadow:none;border-bottom:0;
     max-height:0;opacity:0;overflow:hidden;background:rgba(0,0,0,.2);color:#fff;
-    transition:max-height .55s cubic-bezier(.33,1,.68,1),opacity .45s ease}
+    transition:max-height .62s cubic-bezier(.65,0,.35,1),opacity .5s ease}
   .dropdown::before{display:none}
   .nav__item--drop.open .dropdown{opacity:1}
   .megamenu{grid-template-columns:1fr;gap:12px;padding:6px 0 12px}
@@ -426,7 +426,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 
 /* ---------------- DYNAMIC PHOTO BAND (in-field, ambient motion) ---------------- */
 .band{position:relative;overflow:hidden;background:var(--nh-blue-900);isolation:isolate;height:clamp(320px,50vh,500px)}
-.band__img{position:absolute;left:0;top:-22%;width:100%;height:144%;object-fit:cover;display:block;will-change:transform}
+.band__img{position:absolute;left:0;top:-30%;width:100%;height:160%;object-fit:cover;display:block;will-change:transform}
 .band__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(4,36,79,.82),rgba(4,36,79,.3) 48%,rgba(4,36,79,.05) 100%)}
 .band__cap{position:absolute;left:0;bottom:0;z-index:2;padding:clamp(24px,4vw,48px);max-width:620px}
 .band__eyebrow{font-family:'Archivo';font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--nh-yellow);display:inline-flex;align-items:center;gap:11px;margin-bottom:13px}

@@ -136,7 +136,7 @@ const io = new IntersectionObserver((entries) => {
     el.classList.add('in');
     io.unobserve(el);
   });
-}, { threshold: 0.06, rootMargin: '0px 0px -8% 0px' });
+}, { threshold: 0.02, rootMargin: '0px 0px 14% 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ---- Animated counters ----
@@ -169,7 +169,7 @@ if (bandImgs.length && !RM) {
       const r = band.getBoundingClientRect();
       if (r.bottom < -100 || r.top > vh + 100) return;
       const progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1..1
-      const shift = Math.max(-1, Math.min(1, progress)) * (r.height * 0.18);
+      const shift = Math.max(-1, Math.min(1, progress)) * (r.height * 0.25);
       img.style.transform = `translate3d(0, ${(-shift).toFixed(1)}px, 0)`;
     });
     ticking = false;
