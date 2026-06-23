@@ -1,19 +1,44 @@
-// ---- Mobile menu ----
+// ---- Inline SVG icon sprite (clean line icons replace emoji) ----
+(function injectIcons() {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('aria-hidden', 'true');
+  svg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
+  svg.innerHTML = `
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.3 7-11a7 7 0 1 0-14 0c0 5.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.2 1.4a11 11 0 0 0 5.8 5.8L15 14l5 2v3a2 2 0 0 1-2.1 2A16 16 0 0 1 3 6.1 2 2 0 0 1 5 4z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h2m2 0h2M9 11h2m2 0h2M9 15h2m2 0h2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13m-5-6 6 6-6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>`;
+  document.body.insertBefore(svg, document.body.firstChild);
+})();
+const ICO = (id, cls) => `<svg class="ico${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---- Mobile menu (side drawer) ----
 const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
+let backdrop;
 if (toggle && links) {
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
+  backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  document.body.appendChild(backdrop);
+  const setOpen = (open) => {
+    links.classList.toggle('open', open);
     toggle.classList.toggle('open', open);
+    backdrop.classList.toggle('show', open);
     toggle.setAttribute('aria-expanded', open);
-  });
+    document.body.classList.toggle('nav-locked', open);
+  };
+  toggle.addEventListener('click', () => setOpen(!links.classList.contains('open')));
+  backdrop.addEventListener('click', () => setOpen(false));
   links.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => {
-      // the "Produkty" toplink toggles the dropdown on mobile — don't close the menu
       if (a.classList.contains('nav__toplink') && window.innerWidth <= 1024) return;
-      links.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', false);
+      setOpen(false);
     })
   );
 }
@@ -52,7 +77,7 @@ if (dropdown) {
         ${g.items.map(it => `
           <a class="mega__card" href="${it.u}" target="_blank" rel="noopener">
             <img src="${imgFor(it)}" alt="" loading="lazy" onerror="${onErr}" />
-            <span>${it.n} <i>↗</i></span>
+            <span>${it.n}${ICO('i-ext', 'ico--ext')}</span>
           </a>`).join('')}
       </div>
     </div>`;
@@ -63,7 +88,7 @@ if (dropdown) {
 const pcard = (it) => `
   <a class="pcard" href="${it.u}" target="_blank" rel="noopener">
     <div class="pcard__img"><img src="${imgFor(it)}" alt="${it.n}" loading="lazy" onerror="${onErr}" /></div>
-    <span class="pcard__name">${it.n} <i>↗</i></span>
+    <span class="pcard__name">${it.n}${ICO('i-ext', 'ico--ext')}</span>
   </a>`;
 const fillCards = (id, g) => { const el = document.getElementById(id); if (el) el.innerHTML = g.items.map(pcard).join(''); };
 fillCards('prodCardsAgri', PRODUCTS.agri);
@@ -80,15 +105,26 @@ document.querySelectorAll('.nav__item--drop').forEach(drop => {
   drop.querySelector('.nav__toplink')?.addEventListener('click', toggleDrop);
 });
 
-// ---- Reveal on scroll ----
+// ---- Nav shadow once scrolled ----
+const navEl = document.querySelector('.nav');
+if (navEl) {
+  const onScrollNav = () => navEl.classList.toggle('nav--scrolled', window.scrollY > 8);
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+}
+
+// ---- Reveal on scroll (staggered) ----
 const io = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('in'), (i % 6) * 60);
-      io.unobserve(e.target);
-    }
+  entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
+    const idx = Math.max(0, sibs.indexOf(el));
+    el.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';
+    el.classList.add('in');
+    io.unobserve(el);
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ---- Animated counters ----
@@ -96,41 +132,40 @@ const cio = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     const el = e.target, target = +el.dataset.count;
-    let n = 0;
-    const step = Math.max(1, Math.round(target / 28));
-    const tick = () => { n = Math.min(target, n + step); el.textContent = n; if (n < target) requestAnimationFrame(tick); };
-    tick();
+    if (RM) { el.textContent = target; cio.unobserve(el); return; }
+    const dur = 1100, t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
     cio.unobserve(el);
   });
 }, { threshold: 0.6 });
 document.querySelectorAll('[data-count]').forEach(c => cio.observe(c));
 
-// ---- Product floating preview (only shows once the image is actually loaded) ----
-const pfloat = document.getElementById('pfloat');
-if (pfloat) {
-  const pimg = pfloat.querySelector('img');
-  const items = document.querySelectorAll('.pitem[data-img]');
-  let hovering = null;
-  const move = (e) => { pfloat.style.left = e.clientX + 'px'; pfloat.style.top = e.clientY + 'px'; };
-  const loaded = () => pimg.complete && pimg.naturalWidth > 0;
-  items.forEach(it => {
-    it.addEventListener('mouseenter', () => {
-      hovering = it;
-      const src = it.dataset.img;
-      if (pimg.getAttribute('src') === src && loaded()) {
-        pfloat.classList.add('show');
-      } else {
-        pfloat.classList.remove('show');   // hide until the new image is ready
-        pimg.setAttribute('src', src);
-      }
+// ---- Subtle parallax on photo bands (replaces the auto-zoom) ----
+const bandImgs = [...document.querySelectorAll('.band__img')];
+if (bandImgs.length && !RM) {
+  let ticking = false;
+  const update = () => {
+    const vh = window.innerHeight;
+    bandImgs.forEach(img => {
+      const band = img.parentElement;
+      const r = band.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      const progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1..1
+      const shift = Math.max(-1, Math.min(1, progress)) * (r.height * 0.1);
+      img.style.transform = `translate3d(0, ${(-shift).toFixed(1)}px, 0)`;
     });
-    it.addEventListener('mousemove', move);
-    it.addEventListener('mouseleave', () => {
-      if (hovering === it) { hovering = null; pfloat.classList.remove('show'); }
-    });
-  });
-  pimg.addEventListener('load', () => { if (hovering) pfloat.classList.add('show'); });
-  pimg.addEventListener('error', () => pfloat.classList.remove('show'));
+    ticking = false;
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 }
 
 // ---- Graceful image fallback ----
