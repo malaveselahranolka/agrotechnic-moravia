@@ -1,5 +1,6 @@
 // ---- Inline SVG icon sprite (clean line icons replace emoji) ----
 (function injectIcons() {
+  if (document.getElementById('i-pin')) return;   // already inlined in HTML
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('aria-hidden', 'true');
   svg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden';
@@ -28,9 +29,11 @@ if (toggle && links) {
   document.body.appendChild(backdrop);
   const setOpen = (open) => {
     if (open) {
-      // start the drawer right below the header so it never covers it
-      const navBottom = Math.round(document.querySelector('.nav').getBoundingClientRect().bottom);
-      links.style.top = navBottom + 'px';
+      // align the drawer's top yellow border exactly onto the header's yellow strip
+      const nav = document.querySelector('.nav');
+      const navBottom = Math.round(nav.getBoundingClientRect().bottom);
+      const bw = Math.round(parseFloat(getComputedStyle(nav).borderBottomWidth) || 3);
+      links.style.top = (navBottom - bw) + 'px';
       backdrop.style.top = navBottom + 'px';
     }
     links.classList.toggle('open', open);
@@ -122,18 +125,18 @@ if (navEl) {
   window.addEventListener('scroll', onScrollNav, { passive: true });
 }
 
-// ---- Reveal on scroll (staggered) ----
+// ---- Reveal on scroll (staggered, fine-grained) ----
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
     if (!e.isIntersecting) return;
     const el = e.target;
     const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
     const idx = Math.max(0, sibs.indexOf(el));
-    el.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';
+    el.style.transitionDelay = Math.min(idx, 8) * 80 + 'ms';
     el.classList.add('in');
     io.unobserve(el);
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.06, rootMargin: '0px 0px -8% 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ---- Animated counters ----
@@ -166,7 +169,7 @@ if (bandImgs.length && !RM) {
       const r = band.getBoundingClientRect();
       if (r.bottom < -100 || r.top > vh + 100) return;
       const progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1..1
-      const shift = Math.max(-1, Math.min(1, progress)) * (r.height * 0.1);
+      const shift = Math.max(-1, Math.min(1, progress)) * (r.height * 0.18);
       img.style.transform = `translate3d(0, ${(-shift).toFixed(1)}px, 0)`;
     });
     ticking = false;
