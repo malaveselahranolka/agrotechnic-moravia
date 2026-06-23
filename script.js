@@ -27,6 +27,12 @@ if (toggle && links) {
   backdrop.className = 'nav-backdrop';
   document.body.appendChild(backdrop);
   const setOpen = (open) => {
+    if (open) {
+      // start the drawer right below the header so it never covers it
+      const navBottom = Math.round(document.querySelector('.nav').getBoundingClientRect().bottom);
+      links.style.top = navBottom + 'px';
+      backdrop.style.top = navBottom + 'px';
+    }
     links.classList.toggle('open', open);
     toggle.classList.toggle('open', open);
     backdrop.classList.toggle('show', open);
@@ -96,10 +102,13 @@ fillCards('prodCardsConstr', PRODUCTS.constr);
 
 // Dropdown toggle: hover on desktop, tap the whole "Produkty" row on mobile
 document.querySelectorAll('.nav__item--drop').forEach(drop => {
+  const dd = drop.querySelector('.dropdown');
   const toggleDrop = (e) => {
     if (window.innerWidth > 1024) return;        // desktop uses hover
     e.preventDefault();
-    drop.classList.toggle('open');
+    const opening = !drop.classList.contains('open');
+    drop.classList.toggle('open', opening);
+    if (dd) dd.style.maxHeight = opening ? dd.scrollHeight + 'px' : '0px';  // exact height = smooth both ways
   };
   drop.querySelector('.caret')?.addEventListener('click', toggleDrop);
   drop.querySelector('.nav__toplink')?.addEventListener('click', toggleDrop);

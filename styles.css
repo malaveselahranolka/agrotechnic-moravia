@@ -292,11 +292,12 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 /* ---------------- MOBILE NAV ---------------- */
 @media(max-width:1024px){
   .nav__links{
-    position:fixed;top:0;right:0;bottom:0;left:auto;width:min(86vw,360px);
-    flex-direction:column;align-items:stretch;gap:0;z-index:55;
-    background:var(--nh-blue-900);padding:104px 0 28px;
+    position:fixed;top:112px;right:0;bottom:0;left:auto;width:min(86vw,360px);
+    flex-direction:column;align-items:stretch;gap:0;z-index:58;
+    background:var(--nh-blue-900);padding:16px 0 28px;
     transform:translateX(105%);transition:transform .42s var(--ease);
-    border-left:3px solid var(--nh-yellow);box-shadow:-34px 0 70px -24px rgba(0,0,0,.6);
+    border-left:3px solid var(--nh-yellow);border-top:3px solid var(--nh-yellow);
+    box-shadow:-34px 0 70px -24px rgba(0,0,0,.6);
     overflow-y:auto;overscroll-behavior:contain
   }
   .nav__links.open{transform:translateX(0)}
@@ -307,7 +308,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
   .nav__toggle.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .nav__toggle.open span:nth-child(2){opacity:0}
   .nav__toggle.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-  .nav-backdrop{position:fixed;inset:0;z-index:54;background:rgba(4,18,40,.55);backdrop-filter:blur(2px);
+  .nav-backdrop{position:fixed;top:112px;left:0;right:0;bottom:0;z-index:56;background:rgba(4,18,40,.5);backdrop-filter:blur(2px);
     opacity:0;visibility:hidden;transition:opacity .42s var(--ease),visibility .42s}
   .nav-backdrop.show{opacity:1;visibility:visible}
   body.nav-locked{overflow:hidden}
@@ -393,7 +394,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
     max-height:0;opacity:0;overflow:hidden;background:rgba(0,0,0,.2);color:#fff;
     transition:max-height .42s var(--ease),opacity .3s var(--ease)}
   .dropdown::before{display:none}
-  .nav__item--drop.open .dropdown{max-height:1400px;opacity:1}
+  .nav__item--drop.open .dropdown{opacity:1}
   .megamenu{grid-template-columns:1fr;gap:12px;padding:6px 0 12px}
   .mega__group h4{color:var(--nh-yellow);border-color:var(--line-blue);padding:14px 28px 10px;margin-bottom:0}
   .mega__grid{grid-template-columns:1fr;gap:0}
@@ -480,3 +481,11 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 /* arrow/ext icon spacing after text */
 .ico--go{margin-left:.45em}
 .btn .ico--go{margin-left:.1em}
+
+/* ambient life on the info-block corner squares (O nás) */
+@keyframes cornerFloat{0%{transform:rotate(45deg) scale(.85)}50%{transform:rotate(72deg) scale(1.4)}100%{transform:rotate(45deg) scale(.85)}}
+.bigstat::after{animation:cornerFloat 4.5s ease-in-out infinite}
+.bigstat:nth-child(2)::after{animation-delay:.7s}
+.bigstat:nth-child(3)::after{animation-delay:1.4s}
+.bigstat:nth-child(4)::after{animation-delay:2.1s}
+.bigstat:hover::after{animation-duration:1.8s}
