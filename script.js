@@ -208,6 +208,19 @@ function handleSubmit(e) {
   return false;
 }
 
+// ---- Newsletter sign-up ----
+function handleNewsletter(e) {
+  e.preventDefault();
+  const input = e.target.querySelector('input[type=email]');
+  const email = (input?.value || '').trim();
+  const subject = 'Přihlášení k odběru newsletteru';
+  const body = `Dobrý den,\nrád/a bych odebíral/a novinky AGROTECHNIC MORAVIA.\nMůj e-mail: ${email}\n`;
+  window.location.href = `mailto:roman.lzicar@navos-km.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const note = e.target.querySelector('.newsletter__note');
+  if (note) note.hidden = false;
+  return false;
+}
+
 // ---- Year ----
 const yEl = document.getElementById('year');
 if (yEl) yEl.textContent = new Date().getFullYear();
