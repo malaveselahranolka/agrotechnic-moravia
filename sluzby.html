@@ -62,6 +62,36 @@
       <div class="svc__item"><span class="svc__no">03</span><h4>Komplexní pojištění</h4><p>Pojištění strojů i provozu na míru vašemu hospodářství.</p></div>
       <div class="svc__item"><span class="svc__no">04</span><h4>Poradenství</h4><p>Pomůžeme navrhnout optimální řešení financování celé investice.</p></div>
     </div>
+
+    <div class="calc reveal" id="calc">
+      <div class="calc__intro">
+        <span class="shead__eyebrow">Kalkulačka</span>
+        <h3 class="calc__title">Spočítejte si splátku</h3>
+        <p class="calc__lead">Orientační měsíční splátka leasingu. Posuňte hodnoty podle své představy — výpočet se přepočítá hned.</p>
+      </div>
+      <div class="calc__panel">
+        <div class="calc__controls">
+          <div class="calc__field">
+            <div class="calc__rowlbl"><label for="calcPrice">Cena stroje (bez DPH)</label><output id="calcPriceOut"></output></div>
+            <input type="range" id="calcPrice" min="200000" max="6000000" step="50000" value="1500000" />
+          </div>
+          <div class="calc__field">
+            <div class="calc__rowlbl"><label for="calcDown">Akontace</label><output id="calcDownOut"></output></div>
+            <input type="range" id="calcDown" min="0" max="60" step="5" value="10" />
+          </div>
+          <div class="calc__field">
+            <div class="calc__rowlbl"><label for="calcTerm">Doba splácení</label><output id="calcTermOut"></output></div>
+            <input type="range" id="calcTerm" min="12" max="84" step="6" value="60" />
+          </div>
+        </div>
+        <div class="calc__result">
+          <span class="calc__reslabel">Měsíční splátka od</span>
+          <div class="calc__resval"><b id="calcMonthly">—</b><span>Kč</span></div>
+          <p class="calc__disc">Orientační výpočet (úrok 5,9 % p.a., bez DPH a pojištění). Nezávazné — přesnou nabídku rádi připravíme na míru.</p>
+          <a href="kontakt.html" class="btn btn--primary btn--full">Chci nabídku na míru<svg class="ico ico--go"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -208,6 +208,28 @@ function handleSubmit(e) {
   return false;
 }
 
+// ---- Financing calculator ----
+const calcPrice = document.getElementById('calcPrice');
+if (calcPrice) {
+  const $ = (id) => document.getElementById(id);
+  const down = $('calcDown'), term = $('calcTerm');
+  const priceOut = $('calcPriceOut'), downOut = $('calcDownOut'), termOut = $('calcTermOut'), monthly = $('calcMonthly');
+  const RATE = 0.059; // orientační úrok p.a.
+  const fmt = (n) => Math.round(n).toLocaleString('cs-CZ');
+  const update = () => {
+    const p = +calcPrice.value, d = +down.value, t = +term.value;
+    priceOut.textContent = fmt(p) + ' Kč';
+    downOut.textContent = d + ' %';
+    termOut.textContent = t + ' měs.';
+    const principal = p * (1 - d / 100);
+    const r = RATE / 12;
+    const pay = r ? principal * r / (1 - Math.pow(1 + r, -t)) : principal / t;
+    monthly.textContent = fmt(pay);
+  };
+  [calcPrice, down, term].forEach((el) => el.addEventListener('input', update));
+  update();
+}
+
 // ---- Newsletter sign-up ----
 function handleNewsletter(e) {
   e.preventDefault();
