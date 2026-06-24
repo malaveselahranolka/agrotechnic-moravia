@@ -538,3 +538,33 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 .calc__disc{font-size:12px;color:#a9bcd6;line-height:1.5;margin-bottom:20px}
 .calc__result .btn{margin-top:auto}
 @media(max-width:760px){.calc__panel{grid-template-columns:1fr}.calc__controls{padding:26px 22px}.calc__result{padding:26px 22px}}
+
+/* ---------------- TRUST / WHY US ---------------- */
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.trust__card{position:relative;padding:30px 28px;background:var(--paper);border:1px solid var(--line);border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.trust__card::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:3px;background:var(--nh-yellow);transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease)}
+.trust__card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-color:transparent}
+.trust__card:hover::before{transform:scaleY(1)}
+.trust__ico{display:grid;place-items:center;width:48px;height:48px;border-radius:11px;background:var(--mist);color:var(--nh-blue);margin-bottom:18px;transition:.3s var(--ease)}
+.trust__card:hover .trust__ico{background:var(--nh-blue);color:#fff}
+.trust__ico .ico{width:23px;height:23px;stroke-width:1.8}
+.trust__card h4{font-family:'Archivo';font-weight:800;font-size:1.12rem;color:var(--ink);line-height:1.15;margin-bottom:9px}
+.trust__card p{color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+@media(max-width:860px){.trust{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.trust{grid-template-columns:1fr}}
+
+/* ---------------- AGROBAZAR SHOWCASE ---------------- */
+.bazar{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:18px}
+.bazar__card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.bazar__card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-color:transparent}
+.bazar__img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--mist)}
+.bazar__img img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}
+.bazar__card:hover .bazar__img img{transform:scale(1.06)}
+.bazar__img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,36,79,.28),transparent 55%)}
+.bazar__body{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px}
+.bazar__body h4{font-family:'Archivo';font-weight:800;font-size:1.1rem;color:var(--ink);line-height:1.1}
+.bazar__go{display:inline-flex;align-items:center;font-family:'Archivo';font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--nh-blue);white-space:nowrap}
+.bazar__card:hover .bazar__go{color:var(--nh-blue-900)}
+.bazar__hint{color:var(--ink-soft);font-size:13.5px;margin-bottom:46px}
+@media(max-width:860px){.bazar{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.bazar{grid-template-columns:1fr}}
