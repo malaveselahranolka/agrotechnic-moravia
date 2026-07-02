@@ -95,7 +95,7 @@ if (dropdown) {
 
 // Products section cards (homepage)
 const pcard = (it) => `
-  <a class="pcard reveal" data-reveal="scale" href="${it.u}" target="_blank" rel="noopener">
+  <a class="pcard" href="${it.u}" target="_blank" rel="noopener">
     <div class="pcard__img"><img src="${imgFor(it)}" alt="${it.n}" loading="lazy" onerror="${onErr}" /></div>
     <span class="pcard__name">${it.n}${ICO('i-ext', 'ico--ext')}</span>
   </a>`;
@@ -139,7 +139,7 @@ const brandMarquee = document.getElementById('brandMarquee');
 if (brandMarquee) {
   const tile = (b) => {
     const inner = b.file
-      ? `<img src="assets/brands/${b.file}" alt="${b.n}" loading="lazy"
+      ? `<img src="assets/brands/${b.file}" alt="${b.n}" loading="eager" decoding="async" draggable="false"
              onerror="this.closest('.blogo').classList.add('blogo--text')" />`
       : '';
     return `<a class="blogo${b.file ? (b.mono ? ' blogo--mono' : '') : ' blogo--text'}"
@@ -152,6 +152,13 @@ if (brandMarquee) {
   brandMarquee.innerHTML = `<div class="marquee__track" aria-hidden="false">${row}${row}</div>`;
 }
 
+// Restart the marquee animation after back/forward (bfcache) restore, otherwise it can stay frozen
+window.addEventListener('pageshow', (e) => {
+  if (!e.persisted) return;
+  const track = document.querySelector('.marquee__track');
+  if (track) { track.style.animation = 'none'; void track.offsetWidth; track.style.animation = ''; }
+});
+
 // ---- Nav shadow once scrolled ----
 const navEl = document.querySelector('.nav');
 if (navEl) {
@@ -160,16 +167,6 @@ if (navEl) {
   window.addEventListener('scroll', onScrollNav, { passive: true });
 }
 
-// ---- Turn [data-stagger] grids into per-item cascading reveals ----
-// (each direct child becomes its own reveal so it eases in one after another)
-document.querySelectorAll('[data-stagger]').forEach(grid => {
-  const variant = grid.dataset.stagger;
-  [...grid.children].forEach(child => {
-    child.classList.add('reveal');
-    if (variant && variant !== 'up') child.dataset.reveal = variant;
-  });
-});
-
 // ---- Reveal on scroll (staggered, fine-grained) ----
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
@@ -177,7 +174,7 @@ const io = new IntersectionObserver((entries) => {
     const el = e.target;
     const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
     const idx = Math.max(0, sibs.indexOf(el));
-    el.style.transitionDelay = Math.min(idx, 8) * 90 + 'ms';
+    el.style.transitionDelay = Math.min(idx, 8) * 80 + 'ms';
     el.classList.add('in');
     io.unobserve(el);
   });
