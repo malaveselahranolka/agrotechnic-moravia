@@ -52,7 +52,7 @@
   </video>
   <div class="hero__overlay"></div>
   <div class="container hero__inner">
-    <div class="hero__content reveal">
+    <div class="hero__content">
       <span class="kicker">New Holland Agriculture &amp; Construction</span>
       <p class="hero__lead">Autorizovaný dealer a servis techniky <strong>New Holland</strong>.
         Na trhu od roku 2008, šest poboček po Moravě a non-stop servisní zázemí pro vaše stroje.</p>
@@ -72,7 +72,7 @@
 <!-- AGRICULTURE -->
 <section class="section" id="agriculture">
   <div class="container">
-    <div class="shead reveal">
+    <div class="shead reveal" data-reveal="left">
       <span class="shead__idx">01</span>
       <div class="shead__main">
         <span class="shead__eyebrow">Produkty</span>
@@ -81,14 +81,14 @@
       <p class="shead__desc">Kompletní program zemědělské techniky pro hospodářství každé velikosti. Po kliknutí přejdete na portfolio výrobce.</p>
     </div>
 
-    <div class="pcards reveal" id="prodCardsAgri"></div>
+    <div class="pcards" id="prodCardsAgri"></div>
   </div>
 </section>
 
 <!-- CONSTRUCTION -->
 <section class="section section--ink" id="construction">
   <div class="container">
-    <div class="shead reveal">
+    <div class="shead reveal" data-reveal="left">
       <span class="shead__idx">02</span>
       <div class="shead__main">
         <span class="shead__eyebrow">Produkty</span>
@@ -97,18 +97,17 @@
       <p class="shead__desc">Stavební technika pro náročný provoz — od nakladačů po manipulátory.</p>
     </div>
 
-    <div class="pcards reveal" id="prodCardsConstr"></div>
+    <div class="pcards" id="prodCardsConstr"></div>
   </div>
 </section>
 
 <!-- BRANDS MARQUEE -->
-<section class="section--blue" style="padding:0" aria-label="Zastoupené značky">
-  <div class="marquee">
-    <div class="marquee__track">
-      <span>New Holland</span><span>Amazone</span><span>Tehnos</span><span>Pichon</span><span>Strautmann</span><span>OPaLL-Agri</span><span>Raven</span><span>ZDT</span><span>Molčík</span><span>Fornal</span><span>Provitis</span><span>FJDynamics</span>
-      <span>New Holland</span><span>Amazone</span><span>Tehnos</span><span>Pichon</span><span>Strautmann</span><span>OPaLL-Agri</span><span>Raven</span><span>ZDT</span><span>Molčík</span><span>Fornal</span><span>Provitis</span><span>FJDynamics</span>
-    </div>
+<section class="brands" aria-label="Zastoupené značky">
+  <div class="container brands__lead">
+    <span class="brands__eyebrow">Zastoupené značky</span>
+    <p class="brands__note">Prodáváme a servisujeme techniku ověřených výrobců. Klikněte na značku a přejděte na její web.</p>
   </div>
+  <div class="marquee" id="brandMarquee" role="list"></div>
 </section>
 
 <!-- TRUST / WHY US -->
@@ -122,7 +121,7 @@
       </div>
       <p class="shead__desc">Silné zázemí, oficiální značka a servis po ruce — partner, na kterého se spolehnete.</p>
     </div>
-    <div class="trust reveal">
+    <div class="trust" data-stagger="scale">
       <div class="trust__card"><span class="trust__ico"><svg class="ico"><use href="#i-check"/></svg></span><h4>Autorizovaný dealer New Holland</h4><p>Oficiální prodej, originální díly i záruční servis přímo od značky.</p></div>
       <div class="trust__card"><span class="trust__ico"><svg class="ico"><use href="#i-building"/></svg></span><h4>Člen koncernu AGROFERT</h4><p>Stabilita a zázemí jedné z největších skupin v regionu.</p></div>
       <div class="trust__card"><span class="trust__ico"><svg class="ico"><use href="#i-clock"/></svg></span><h4>Na trhu od roku 2008</h4><p>Zkušenost a kontinuita ověřená každodenní praxí.</p></div>
@@ -136,7 +135,7 @@
 <!-- SERVICES TEASER -->
 <section class="section section--mist" id="sluzby">
   <div class="container">
-    <div class="shead reveal">
+    <div class="shead reveal" data-reveal="left">
       <span class="shead__idx">03</span>
       <div class="shead__main">
         <span class="shead__eyebrow">Služby</span>
@@ -144,7 +143,7 @@
       </div>
       <p class="shead__desc">Autorizovaný servis na šesti pobočkách a komplexní finanční služby při pořízení techniky.</p>
     </div>
-    <div class="svc reveal">
+    <div class="svc" data-stagger="up">
       <div class="svc__item"><span class="svc__no">01</span><h4>Autorizovaný servis</h4><p>Odborné opravy a údržba techniky New Holland na všech pobočkách i v terénu.</p></div>
       <div class="svc__item"><span class="svc__no">02</span><h4>Non-stop výjezd</h4><p>Servisní non-stop linky na pobočkách pro řešení poruch v plné sezóně.</p></div>
       <div class="svc__item"><span class="svc__no">03</span><h4>Náhradní díly</h4><p>Originální díly New Holland skladem i na rychlou objednávku.</p></div>
@@ -157,7 +156,7 @@
 <!-- BRANCHES TEASER -->
 <section class="section section--ink">
   <div class="container">
-    <div class="shead reveal">
+    <div class="shead reveal" data-reveal="right">
       <span class="shead__idx">04</span>
       <div class="shead__main">
         <span class="shead__eyebrow">Síť poboček</span>
@@ -165,7 +164,7 @@
       </div>
       <p class="shead__desc">Šest poboček s provozní dobou Po–Pá 7:00–15:30 a non-stop servisními linkami.</p>
     </div>
-    <div class="locs reveal">
+    <div class="locs" data-stagger="up">
       <div class="loc"><h3>Olomouc</h3><div class="loc__row"><svg class="ico"><use href="#i-pin"/></svg> Lipenská 1120/47, Olomouc</div><div class="loc__row"><svg class="ico"><use href="#i-phone"/></svg> <a href="tel:+420720997752">720 997 752</a></div></div>
       <div class="loc"><h3>Kroměříž</h3><div class="loc__row"><svg class="ico"><use href="#i-pin"/></svg> Čelakovského 1858, Kroměříž</div><div class="loc__row"><svg class="ico"><use href="#i-phone"/></svg> <a href="tel:+420725700580">725 700 580</a></div></div>
       <div class="loc"><h3>Zábřeh</h3><div class="loc__row"><svg class="ico"><use href="#i-pin"/></svg> Leštinská 972/32, Zábřeh</div><div class="loc__row"><svg class="ico"><use href="#i-phone"/></svg> <a href="tel:+420583495212">583 495 212</a></div></div>
@@ -180,7 +179,7 @@
 <!-- CTA -->
 <section class="section section--tight">
   <div class="container">
-    <div class="cta reveal">
+    <div class="cta reveal" data-reveal="blur">
       <div class="cta__in">
         <h2>Pomůžeme vybrat techniku na míru</h2>
         <p>Ozvěte se nám — poradíme s výběrem, servisem i financováním nové či použité techniky.</p>

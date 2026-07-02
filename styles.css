@@ -163,17 +163,37 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 .pfloat.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
 @media(hover:none),(max-width:880px){.pfloat{display:none}}
 
-/* ---------------- MARQUEE BRANDS ---------------- */
-.marquee{overflow:hidden;border-top:2px solid currentColor;border-bottom:2px solid currentColor;padding:0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee__track{display:flex;gap:0;width:max-content;animation:scrollx 32s linear infinite}
-.marquee:hover .marquee__track{animation-play-state:paused}
-.marquee__track span{
-  font-family:'Archivo';font-weight:900;font-size:clamp(1.4rem,3vw,2.2rem);text-transform:uppercase;
-  letter-spacing:-.01em;padding:26px 34px;white-space:nowrap;display:flex;align-items:center;gap:34px;color:var(--ink)
+/* ---------------- BRAND STRIP (clickable logos, frameless) ---------------- */
+.brands{padding:56px 0 60px;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.brands__lead{display:flex;flex-direction:column;gap:8px;margin-bottom:30px}
+.brands__eyebrow{font-family:'Archivo';font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--nh-blue);display:inline-flex;align-items:center;gap:10px}
+.brands__eyebrow::before{content:"";width:34px;height:3px;background:var(--nh-yellow)}
+.brands__note{color:var(--ink-soft);max-width:560px;font-size:15px}
+
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee__track{display:flex;align-items:center;width:max-content;gap:14px;padding:4px 0;animation:scrollx 46s linear infinite}
+.marquee:hover .marquee__track,.marquee:focus-within .marquee__track{animation-play-state:paused}
+@keyframes scrollx{to{transform:translateX(calc(-50% - 7px))}}
+
+/* frameless logo cell — original colours, no card */
+.blogo{
+  flex:0 0 auto;display:grid;place-items:center;width:180px;height:88px;padding:0 22px;border-radius:12px;
+  transition:transform .35s var(--ease),background .35s var(--ease)
 }
-.section--blue .marquee__track span{color:#fff}
-.marquee__track span::after{content:"●";font-size:.5em;color:var(--nh-yellow)}
-@keyframes scrollx{to{transform:translateX(-50%)}}
+.blogo img{max-width:100%;max-height:46px;width:auto;height:auto;object-fit:contain;
+  opacity:.78;transition:opacity .35s var(--ease)}
+.blogo__name{display:none;font-family:'Archivo';font-weight:900;font-size:1.15rem;text-transform:uppercase;letter-spacing:-.01em;color:var(--nh-blue);text-align:center;line-height:1}
+/* wordmark cells (no official file yet) */
+.blogo--text .blogo__name{display:block}
+.blogo--text img{display:none}
+/* logos that only exist as a white/single-colour mark → tint to brand blue so they read on the light strip */
+.blogo--mono img{filter:brightness(0) saturate(100%) invert(23%) sepia(88%) saturate(1500%) hue-rotate(196deg) brightness(94%) contrast(101%);opacity:.72}
+
+.blogo:hover,.blogo:focus-visible{transform:translateY(-3px);background:#f3f7fc;outline:none}
+.blogo:hover img,.blogo:focus-visible img{opacity:1}
+.blogo:focus-visible{box-shadow:0 0 0 3px var(--nh-yellow)}
+.blogo--text:hover .blogo__name,.blogo--text:focus-visible .blogo__name{color:var(--nh-blue-700)}
+@media(max-width:640px){.blogo{width:146px;height:76px;padding:0 16px}.blogo img{max-height:40px}}
 
 /* ---------------- SERVICES (numbered two-col) ---------------- */
 .svc{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:2px solid var(--line)}
@@ -317,8 +337,26 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 @media(max-width:1024px){.nav-backdrop{display:block}}
 
 /* ---------------- REVEAL ---------------- */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
-.reveal.in{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .9s var(--ease),filter .8s ease}
+.reveal.in{opacity:1;transform:none;filter:none}
+/* directional + character variants (set via data-reveal) */
+.reveal[data-reveal="left"]{transform:translateX(-46px)}
+.reveal[data-reveal="right"]{transform:translateX(46px)}
+.reveal[data-reveal="scale"]{transform:translateY(30px) scale(.93)}
+.reveal[data-reveal="blur"]{transform:translateY(14px);filter:blur(16px)}
+/* clip-wipe: content sits in place, a mask sweeps left→right */
+.reveal[data-reveal="clip"]{opacity:1;transform:none;clip-path:inset(0 100% 0 0)}
+.reveal[data-reveal="clip"].in{clip-path:inset(0 0 0 0);transition:clip-path .9s var(--ease)}
+
+/* ---- HERO load orchestration (plays immediately, no scroll) ---- */
+.hero__content > *{opacity:0;animation:heroRise .9s var(--ease) both}
+.hero__content > .kicker{animation-delay:.15s}
+.hero__content > .hero__lead{animation-delay:.30s}
+.hero__content > .hero__actions{animation-delay:.45s}
+.hero__content > .hero__stats{animation-delay:.60s}
+.hero__content > .kicker::before{transform-origin:left;animation:barGrow .7s var(--ease) .5s both}
+@keyframes heroRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes barGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 
 /* image fallback */
 .img-fallback{background:linear-gradient(135deg,var(--nh-blue),var(--nh-blue-900))!important;position:relative}
@@ -326,7 +364,9 @@ html{scrollbar-width:thin;scrollbar-color:var(--nh-blue) var(--mist)}
 
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+  .reveal{opacity:1;transform:none;filter:none;clip-path:none}
+  .hero__content > *{opacity:1;transform:none}
+  .hero__content > .kicker::before{transform:none}
 }
 
 @media(max-width:640px){.section{padding:72px 0}.cta::before{display:none}}

@@ -95,7 +95,7 @@ if (dropdown) {
 
 // Products section cards (homepage)
 const pcard = (it) => `
-  <a class="pcard" href="${it.u}" target="_blank" rel="noopener">
+  <a class="pcard reveal" data-reveal="scale" href="${it.u}" target="_blank" rel="noopener">
     <div class="pcard__img"><img src="${imgFor(it)}" alt="${it.n}" loading="lazy" onerror="${onErr}" /></div>
     <span class="pcard__name">${it.n}${ICO('i-ext', 'ico--ext')}</span>
   </a>`;
@@ -117,6 +117,41 @@ document.querySelectorAll('.nav__item--drop').forEach(drop => {
   drop.querySelector('.nav__toplink')?.addEventListener('click', toggleDrop);
 });
 
+// ---- Brand strip (clickable real logos → brand websites) ----
+// file:''  → no official logo yet, shows a clean styled wordmark instead (drop a file in assets/brands/ to upgrade)
+// mono:true → only a white/single-colour version exists; tinted to brand blue so it reads on the light strip
+const BRANDS = [
+  { n: 'New Holland', url: 'https://agriculture.newholland.com/eu/cs-cz', file: 'newholland.png' },
+  { n: 'New Holland Construction', url: 'https://construction.newholland.com/eu/cs-cz', file: 'newholland-construction.png' },
+  { n: 'Amazone',     url: 'https://amazone.net',                         file: 'amazone.png' },
+  { n: 'Tehnos',      url: 'https://www.tehnos.si',                       file: 'tehnos.png' },
+  { n: 'Pichon',      url: 'https://www.pichonindustries.com',           file: 'pichon.png' },
+  { n: 'Strautmann',  url: 'https://www.strautmann.com',                 file: 'strautmann.jpg' },
+  { n: 'OPaLL-Agri',  url: 'https://www.opall-agri.cz',                  file: 'opall-agri.png' },
+  { n: 'Raven',       url: 'https://ravenprecision.com',                 file: 'raven.svg' },
+  { n: 'ZDT',         url: 'https://www.zdt.cz',                         file: 'zdt.svg' },
+  { n: 'Molčík',      url: 'https://www.molcik.cz',                      file: 'molcik.png' },
+  { n: 'Fornal',      url: 'https://fornal.pl',                          file: 'fornal.png' },
+  { n: 'Provitis',    url: 'https://www.provitis.fr',                    file: 'provitis.png' },
+  { n: 'FJDynamics',  url: 'https://www.fjdynamics.com',                 file: 'fjdynamics.jpg' },
+];
+const brandMarquee = document.getElementById('brandMarquee');
+if (brandMarquee) {
+  const tile = (b) => {
+    const inner = b.file
+      ? `<img src="assets/brands/${b.file}" alt="${b.n}" loading="lazy"
+             onerror="this.closest('.blogo').classList.add('blogo--text')" />`
+      : '';
+    return `<a class="blogo${b.file ? (b.mono ? ' blogo--mono' : '') : ' blogo--text'}"
+               href="${b.url}" target="_blank" rel="noopener" role="listitem"
+               aria-label="${b.n} — otevřít web značky">
+              ${inner}<span class="blogo__name">${b.n}</span>
+            </a>`;
+  };
+  const row = BRANDS.map(tile).join('');
+  brandMarquee.innerHTML = `<div class="marquee__track" aria-hidden="false">${row}${row}</div>`;
+}
+
 // ---- Nav shadow once scrolled ----
 const navEl = document.querySelector('.nav');
 if (navEl) {
@@ -125,6 +160,16 @@ if (navEl) {
   window.addEventListener('scroll', onScrollNav, { passive: true });
 }
 
+// ---- Turn [data-stagger] grids into per-item cascading reveals ----
+// (each direct child becomes its own reveal so it eases in one after another)
+document.querySelectorAll('[data-stagger]').forEach(grid => {
+  const variant = grid.dataset.stagger;
+  [...grid.children].forEach(child => {
+    child.classList.add('reveal');
+    if (variant && variant !== 'up') child.dataset.reveal = variant;
+  });
+});
+
 // ---- Reveal on scroll (staggered, fine-grained) ----
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
@@ -132,7 +177,7 @@ const io = new IntersectionObserver((entries) => {
     const el = e.target;
     const sibs = [...el.parentElement.children].filter(c => c.classList.contains('reveal'));
     const idx = Math.max(0, sibs.indexOf(el));
-    el.style.transitionDelay = Math.min(idx, 8) * 80 + 'ms';
+    el.style.transitionDelay = Math.min(idx, 8) * 90 + 'ms';
     el.classList.add('in');
     io.unobserve(el);
   });
