@@ -56,21 +56,21 @@ if (toggle && links) {
 const NHM = 'https://www.eagrotec.cz/products/nakladace-a-manipulatory/';
 const PRODUCTS = {
   agri: { title: 'New Holland Agriculture', items: [
-    { n: 'Traktory', u: 'https://www.eagrotec.cz/produkty/traktory', s: 'traktory' },
-    { n: 'Sklizňové stroje', u: 'https://www.eagrotec.cz/produkty/skliznove-stroje', s: 'skliznove' },
-    { n: 'Svinovací a vysokotlaké lisy', u: 'https://www.eagrotec.cz/produkty/svinovaci-lisy', s: 'lisy' },
-    { n: 'PLMi — precizní zemědělství', u: 'https://www.eagrotec.cz/products/navigace', s: 'plmi' },
-    { n: 'Komunální technika', u: 'https://www.eagrotec.cz/products/komunalni-technika', s: 'komunalni' },
-    { n: 'Viniční technika', u: 'https://www.eagrotec.cz/produkty/vinicni-technika', s: 'vinicni' },
-    { n: 'Reklamní předměty', u: 'http://shop.eagrotec.cz/', s: 'reklamni' },
+    { n: 'Traktory', u: 'https://www.eagrotec.cz/produkty/traktory', s: 'traktory', a: 'Traktor New Holland' },
+    { n: 'Sklizňové stroje', u: 'https://www.eagrotec.cz/produkty/skliznove-stroje', s: 'skliznove', a: 'Sklízecí mlátička New Holland' },
+    { n: 'Svinovací a vysokotlaké lisy', u: 'https://www.eagrotec.cz/produkty/svinovaci-lisy', s: 'lisy', a: 'Svinovací lis New Holland' },
+    { n: 'PLMi — precizní zemědělství', u: 'https://www.eagrotec.cz/products/navigace', s: 'plmi', a: 'New Holland PLM — technologie precizního zemědělství' },
+    { n: 'Komunální technika', u: 'https://www.eagrotec.cz/products/komunalni-technika', s: 'komunalni', a: 'Komunální traktor New Holland' },
+    { n: 'Viniční technika', u: 'https://www.eagrotec.cz/produkty/vinicni-technika', s: 'vinicni', a: 'Úzkorozchodný viniční traktor New Holland' },
+    { n: 'Reklamní předměty', u: 'http://shop.eagrotec.cz/', s: 'reklamni', a: 'Reklamní model techniky New Holland' },
   ]},
   constr: { title: 'New Holland Construction', items: [
-    { n: 'Smykem řízené nakladače řady L', u: NHM + 'l213-l234', s: 'smykem-l' },
-    { n: 'Kloubové nakladače řady W', u: NHM + 'klbove-nakladace-w', s: 'kloubove-w' },
-    { n: 'Minirýpadla řady E', u: NHM + 'mini-rypadla-e', s: 'minirypadla-e' },
-    { n: 'Rypadlonakladače řady B', u: NHM + 'rypadlove-nakladace-b', s: 'rypadlo-b' },
-    { n: 'Kompaktní kloubové nakladače řady W', u: NHM + 'kompaktne-nakladace-w', s: 'kompaktni-w' },
-    { n: 'Teleskopické manipulátory TH', u: NHM + 'teleskopicke-manipulatory-th', s: 'teleskop-th' },
+    { n: 'Smykem řízené nakladače řady L', u: NHM + 'l213-l234', s: 'smykem-l', a: 'Smykem řízený nakladač New Holland řady L' },
+    { n: 'Kloubové nakladače řady W', u: NHM + 'klbove-nakladace-w', s: 'kloubove-w', a: 'Kloubový nakladač New Holland řady W' },
+    { n: 'Minirýpadla řady E', u: NHM + 'mini-rypadla-e', s: 'minirypadla-e', a: 'Minirýpadlo New Holland řady E' },
+    { n: 'Rypadlonakladače řady B', u: NHM + 'rypadlove-nakladace-b', s: 'rypadlo-b', a: 'Rypadlonakladač New Holland řady B' },
+    { n: 'Kompaktní kloubové nakladače řady W', u: NHM + 'kompaktne-nakladace-w', s: 'kompaktni-w', a: 'Kompaktní kloubový nakladač New Holland řady W' },
+    { n: 'Teleskopické manipulátory TH', u: NHM + 'teleskopicke-manipulatory-th', s: 'teleskop-th', a: 'Teleskopický manipulátor New Holland řady TH' },
   ]},
 };
 const imgFor = (it) => `assets/products/${it.s}.jpg`;
@@ -85,7 +85,7 @@ if (dropdown) {
       <div class="mega__grid">
         ${g.items.map(it => `
           <a class="mega__card" href="${it.u}" target="_blank" rel="noopener">
-            <img src="${imgFor(it)}" alt="" loading="lazy" onerror="${onErr}" />
+            <img src="${imgFor(it)}" alt="${it.a || it.n}" loading="lazy" onerror="${onErr}" />
             <span>${it.n}${ICO('i-ext', 'ico--ext')}</span>
           </a>`).join('')}
       </div>
@@ -96,7 +96,7 @@ if (dropdown) {
 // Products section cards (homepage)
 const pcard = (it) => `
   <a class="pcard" href="${it.u}" target="_blank" rel="noopener">
-    <div class="pcard__img"><img src="${imgFor(it)}" alt="${it.n}" loading="lazy" onerror="${onErr}" /></div>
+    <div class="pcard__img"><img src="${imgFor(it)}" alt="${it.a || it.n}" loading="lazy" onerror="${onErr}" /></div>
     <span class="pcard__name">${it.n}${ICO('i-ext', 'ico--ext')}</span>
   </a>`;
 const fillCards = (id, g) => { const el = document.getElementById(id); if (el) el.innerHTML = g.items.map(pcard).join(''); };
