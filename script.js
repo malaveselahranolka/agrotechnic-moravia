@@ -139,7 +139,7 @@ const brandMarquee = document.getElementById('brandMarquee');
 if (brandMarquee) {
   const tile = (b) => {
     const inner = b.file
-      ? `<img src="assets/brands/${b.file}" alt="${b.n}" loading="eager" decoding="async" draggable="false"
+      ? `<img src="assets/brands/${b.file}" alt="${b.n}" loading="eager" decoding="async" fetchpriority="low" draggable="false"
              onerror="this.closest('.blogo').classList.add('blogo--text')" />`
       : '';
     return `<a class="blogo${b.file ? (b.mono ? ' blogo--mono' : '') : ' blogo--text'}"
